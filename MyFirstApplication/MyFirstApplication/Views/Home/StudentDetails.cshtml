@@ -47,6 +47,35 @@
                     <th>Mark</th>
                     <td>@Model.Mark</td>
                 </tr>
+                <tr>
+                    @*
+                    @{
+                        string studentResult;
+                        if (Model.Mark >= 40)
+                        {
+                            studentResult = "Pass";
+                        }
+                        else
+                        {
+                            studentResult = "Fail";
+                        }
+                    }
+                    <th>Result</th>
+                    <td>@studentResult</td>
+                    *@
+
+                    <th>Result</th>
+                    @{
+                        if (Model.Mark >= 40)
+                        {
+                            <td>Pass</td>
+                        }
+                        else
+                        {
+                            <td>Fail</td>
+                        }
+                    }
+                </tr>
             </tbody>
         </table>
     </div>
