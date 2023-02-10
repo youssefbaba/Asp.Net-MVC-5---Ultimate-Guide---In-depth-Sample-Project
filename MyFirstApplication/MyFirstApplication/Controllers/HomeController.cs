@@ -95,5 +95,21 @@ namespace MyFirstApplication.Controllers
             };
             return View(student);
         }
+
+        [HttpGet]
+        // GET: /home/requestexample
+        public ActionResult RequestExample()
+        {
+            ViewBag.Url = Request.Url;
+            ViewBag.PhysicalApplicationPath = Request.PhysicalApplicationPath;
+            ViewBag.Path = Request.Path;
+            ViewBag.BrowserType = Request.Browser.Type;
+            ViewBag.QueryString = Request.QueryString;
+            ViewBag.SpecificQueryString = Request.QueryString["param1"];
+            ViewBag.HeadersAccept = Request.Headers["Accept"];
+            ViewBag.HttpMethod = Request.HttpMethod;
+
+            return View();
+        }
     }
 }

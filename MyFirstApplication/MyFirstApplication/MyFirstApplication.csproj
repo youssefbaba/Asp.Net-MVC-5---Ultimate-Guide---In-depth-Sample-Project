@@ -120,6 +120,7 @@
     <Content Include="Views\Account\InvalidLogin.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Home\StudentDetails.cshtml" />
+    <Content Include="Views\Home\RequestExample.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

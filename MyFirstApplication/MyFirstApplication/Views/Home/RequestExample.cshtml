@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RequestExample</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Company</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/home/index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home/products">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home/contact">Contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/account/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Url</th>
+                    <td>@ViewBag.Url</td>
+                </tr>
+                <tr>
+                    <th>PhysicalApplicationPath</th>
+                    <td>@ViewBag.PhysicalApplicationPath</td>
+                </tr>
+                <tr>
+                    <th>Path</th>
+                    <td>@ViewBag.Path</td>
+                </tr>
+                <tr>
+                    <th>BrowserType</th>
+                    <td>@ViewBag.BrowserType</td>
+                </tr>
+                <tr>
+                    <th>All QueryString</th>
+                    <td>@ViewBag.QueryString</td>
+                </tr>
+                <tr>
+                    <th>Specific QueryString</th>
+                    <td>@ViewBag.SpecificQueryString</td>
+                </tr>
+                <tr>
+                    <th>Headers (Accept)</th>
+                    <td>@ViewBag.HeadersAccept</td>
+                </tr>
+                <tr>
+                    <th>HttpMethod</th>
+                    <td>@ViewBag.HttpMethod</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="~/Scripts/jquery-3.6.3.min.js"></script>
+    <script src="~/Scripts/umd/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
