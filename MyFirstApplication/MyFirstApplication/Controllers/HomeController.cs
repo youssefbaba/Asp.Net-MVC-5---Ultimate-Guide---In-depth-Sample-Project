@@ -111,5 +111,18 @@ namespace MyFirstApplication.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        // GET: /home/responseexample
+        public ActionResult ResponseExample()
+        {
+            Response.Write("Hello");
+            Response.Write("World");
+            Response.ContentType = "text/plain";
+            Response.Headers["server"] = "My Server";
+            Response.StatusCode = 500;
+            Response.StatusDescription = "Internal Server Error";
+            return View();
+        }
     }
 }
