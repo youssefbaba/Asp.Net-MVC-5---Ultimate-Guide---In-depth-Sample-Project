@@ -1,4 +1,5 @@
 ﻿using MyFirstApplication.ViewModels;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -88,7 +89,9 @@ namespace MyFirstApplication.Controllers
             {
                 StudentId = 100,
                 StudentName = "Pablo Vargas",
-                Mark = 80
+                Mark = 80,
+                NumberOfSemesters = 6,
+                Subjects = new List<string>() { "Mathematics", "English", "Computer Science", "Philosophy" }
             };
             return View(student);
         }

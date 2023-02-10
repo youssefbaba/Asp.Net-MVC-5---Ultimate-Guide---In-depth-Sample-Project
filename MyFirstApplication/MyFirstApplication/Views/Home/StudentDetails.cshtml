@@ -65,6 +65,30 @@
                     }
                 </tr>
                 <tr>
+                    <th>Semesters</th>
+                    @* Razor For *@
+                    <td>
+                        <ul class="list-unstyled">
+                            @for (int i = 1; i <= Model.NumberOfSemesters; i++)
+                            {
+                                <li>Semester @i</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Subjects</th>
+                    @* Razor ForEach *@
+                    <td>
+                        <ul class="list-unstyled">
+                            @foreach (var subject in Model.Subjects)
+                            {
+                                <li>@subject</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
                     <td colspan="2">
                         @* Razor If *@
                         @if (Model.Mark >= 40)
