@@ -37,34 +37,22 @@
             <tbody>
                 <tr>
                     <th>#</th>
+                    @* Razor Expression *@
                     <td>@Model.StudentId</td>
                 </tr>
                 <tr>
                     <th>Student Name</th>
+                    @* Razor Expression *@
                     <td>@Model.StudentName</td>
                 </tr>
                 <tr>
                     <th>Mark</th>
+                    @* Razor Expression *@
                     <td>@Model.Mark</td>
                 </tr>
                 <tr>
-                    @*
-                    @{
-                        string studentResult;
-                        if (Model.Mark >= 40)
-                        {
-                            studentResult = "Pass";
-                        }
-                        else
-                        {
-                            studentResult = "Fail";
-                        }
-                    }
                     <th>Result</th>
-                    <td>@studentResult</td>
-                    *@
-
-                    <th>Result</th>
+                    @* Razor Block *@
                     @{
                         if (Model.Mark >= 40)
                         {
@@ -75,6 +63,19 @@
                             <td>Fail</td>
                         }
                     }
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @* Razor If *@
+                        @if (Model.Mark >= 40)
+                        {
+                            <span class="text-success">Congratulations</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">Better luck next time!</span>
+                        }
+                    </td>
                 </tr>
             </tbody>
         </table>
