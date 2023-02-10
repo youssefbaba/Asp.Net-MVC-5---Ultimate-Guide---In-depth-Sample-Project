@@ -26,6 +26,8 @@ namespace MyFirstApplication.Controllers
             return View();
         }
 
+        [HttpGet]
+        // GET: /home/getemployeename?employeeid = 1
         public ActionResult GetEmployeeName(int employeeId)
         {
             var employees = new[]
@@ -33,7 +35,6 @@ namespace MyFirstApplication.Controllers
                 new { EmployeeId = 1 , EmployeeName = "Timoteo Blanco" , Salary = 1200},
                 new { EmployeeId = 2 , EmployeeName = "Abel Blesa" , Salary = 1000},
                 new { EmployeeId = 3 , EmployeeName = "Enrique Hidalgo" , Salary = 1500},
-                new { EmployeeId = 4 , EmployeeName = "Pascual Márquez" , Salary = 1180},
             };
             var employee = employees.SingleOrDefault(e => e.EmployeeId == employeeId);
             if (employee == null)
@@ -49,7 +50,16 @@ namespace MyFirstApplication.Controllers
             //return Content(matchingEmployeeName, "text/html");
             //return Content(matchingEmployeeName);
             return Content($"Employee Name : {matchingEmployeeName}");
-
         }
+
+        [HttpGet]
+        // GET: /home/getpayslip?employeeid=1 
+        public ActionResult GetPaySlip(int employeeId)
+        {
+            string path = $"~/Content/Files/PaySlip{employeeId}.pdf";
+            return File(path, "application/pdf");
+        }
+
+
     }
 }
