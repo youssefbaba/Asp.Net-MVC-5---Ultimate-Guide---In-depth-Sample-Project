@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using MyFirstApplication.ViewModels;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace MyFirstApplication.Controllers
@@ -79,5 +80,17 @@ namespace MyFirstApplication.Controllers
             return Redirect(facebookUrl);
         }
 
+        [HttpGet]
+        // GET: /home/studentdetails
+        public ActionResult StudentDetails()
+        {
+            var student = new StudentViewModel()
+            {
+                StudentId = 100,
+                StudentName = "Pablo Vargas",
+                Mark = 80
+            };
+            return View(student);
+        }
     }
 }
