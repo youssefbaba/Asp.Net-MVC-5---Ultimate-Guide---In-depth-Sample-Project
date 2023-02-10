@@ -60,6 +60,24 @@ namespace MyFirstApplication.Controllers
             return File(path, "application/pdf");
         }
 
+        [HttpGet]
+        // GET: /home/employeefacebookpage?employeeid=1
+        public ActionResult EmployeeFacebookPage(int employeeId)
+        {
+            var employees = new[]
+{
+                new { EmployeeId = 1 , EmployeeName = "Timoteo Blanco" , Salary = 1200},
+                new { EmployeeId = 2 , EmployeeName = "Abel Blesa" , Salary = 1000},
+                new { EmployeeId = 3 , EmployeeName = "Enrique Hidalgo" , Salary = 1500},
+            };
+            var employee = employees.SingleOrDefault(e => e.EmployeeId == employeeId);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            string facebookUrl = $"https://www.facebook.com/{employeeId}";
+            return Redirect(facebookUrl);
+        }
 
     }
 }
