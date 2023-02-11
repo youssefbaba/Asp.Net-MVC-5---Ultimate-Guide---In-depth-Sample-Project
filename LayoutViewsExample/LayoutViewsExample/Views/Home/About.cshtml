@@ -3,11 +3,6 @@
     ViewBag.Title = "About";
 }
 
-<h2>About Page</h2>
-@{
-    ViewBag.Message2 = "[About Page]";
-}
-
 @section Submenu{
     <li>
         <a href="#" class="text-white d-block py-2 text-decoration-none">About 1</a>
@@ -19,4 +14,11 @@
         <a href="#" class="text-white d-block py-2 text-decoration-none">About 3</a>
     </li>
 }
+
+@{ 
+    ViewBag.ListTitle = "About : ";
+    ViewBag.Items = new List<string>() { "About Company", "About Founders", "About Team" };
+    Html.RenderPartial("_ListPartialView");
+}
+
 

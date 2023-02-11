@@ -3,11 +3,6 @@
     ViewBag.Title = "Contact";
 }
 
-<h2>Contact Page</h2>
-@{
-    ViewBag.Message2 = "[Contact Page]";
-}
-
 @section Submenu{
     <li>
         <a href="#" class="text-white d-block py-2 text-decoration-none">Contact 1</a>
@@ -18,4 +13,10 @@
     <li>
         <a href="#" class="text-white d-block py-2 text-decoration-none">Contact 3</a>
     </li>
+}
+
+@{ 
+    ViewBag.ListTitle = "Contact : ";
+    ViewBag.Items = new List<string>() { "Contact Marketing Team", "Contact Installation Technician", "Contact Support Team" };
+    Html.RenderPartial("_ListPartialView");
 }

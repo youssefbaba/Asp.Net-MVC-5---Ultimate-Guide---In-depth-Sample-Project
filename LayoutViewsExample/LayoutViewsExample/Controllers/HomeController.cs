@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace LayoutViewsExample.Controllers
 {
@@ -10,6 +11,14 @@ namespace LayoutViewsExample.Controllers
         {
             ViewBag.Message1 = "Welcome To Demo Application";
             return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult DemoPartialView()
+        {
+            ViewBag.ListTitle = "Home : ";
+            ViewBag.Items = new List<string>() { "Admin Home", "Agent Home", "Customer Home" };
+            return PartialView("_ListPartialView");
         }
 
         [HttpGet]

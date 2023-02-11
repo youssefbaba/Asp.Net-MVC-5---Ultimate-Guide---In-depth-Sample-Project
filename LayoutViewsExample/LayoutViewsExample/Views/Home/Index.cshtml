@@ -2,11 +2,6 @@
     ViewBag.Title = "Home";
 }
 
-<h2>Home Page</h2>
-@{
-    ViewBag.Message2 = "[Home Page]";
-}
-
 @section Submenu{
     <li>
         <a href="#" class="text-white d-block py-2 text-decoration-none">Home 1</a>
@@ -17,5 +12,8 @@
     <li>
         <a href="#" class="text-white d-block py-2 text-decoration-none">Home 3</a>
     </li>
+}
+@{ 
+    Html.RenderAction("DemoPartialView", "Home");
 }
 
