@@ -31,7 +31,54 @@
         </div>
     </nav>
     <section class="container-fluid" id="content-page">
-        @RenderBody()
+        <div class="row">
+            <!-- Start Sidebar  -->
+            <aside class="col-2 bg-primary sidebar">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-white d-block py-2 text-decoration-none position-relative">Home</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">Home 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">Home 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">Home 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white d-block py-2 text-decoration-none">About</a>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-white d-block py-2 text-decoration-none position-relative">Pages</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">Page 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">Page 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">Page 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white d-block py-2 text-decoration-none">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white d-block py-2 text-decoration-none">Contact</a>
+                    </li>
+                </ul>
+            </aside>
+            <!-- End Sidebar  -->
+            <div class="col-10">
+                @RenderBody()
+            </div>
+        </div>
     </section>
     <script src="~/Scripts/jquery-3.6.3.min.js"></script>
     <script src="~/Scripts/umd/popper.min.js"></script>
