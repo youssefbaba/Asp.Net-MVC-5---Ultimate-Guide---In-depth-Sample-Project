@@ -8,6 +8,7 @@ namespace LayoutViewsExample.Controllers
         // GET: /home/index
         public ActionResult Index()
         {
+            ViewBag.Message1 = "Welcome To Demo Application";
             return View();
         }
 
@@ -15,6 +16,7 @@ namespace LayoutViewsExample.Controllers
         // GET: /home/about
         public ActionResult About()
         {
+            ViewBag.Message1 = "Leading Company In The World";
             return View();
         }
 
@@ -22,6 +24,7 @@ namespace LayoutViewsExample.Controllers
         // GET: /home/contact
         public ActionResult Contact()
         {
+            ViewBag.Message1 = "Contact Our Customer Care Representative";
             return View();
         }
 
