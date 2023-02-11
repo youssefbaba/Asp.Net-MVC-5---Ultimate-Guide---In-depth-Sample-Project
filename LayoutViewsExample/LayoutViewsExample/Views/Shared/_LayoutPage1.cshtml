@@ -24,6 +24,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/home/profile">Profile</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/products/index">Products</a>
+                </li>
             </ul>
             <div class="d-none d-md-flex align-items-center">
                 <p class="text-white mb-0"><span class="mr-1">@ViewBag.Message1</span><span>@ViewBag.Message2</span></p>
@@ -75,12 +78,15 @@
                             <li>
                                 <a href="#" class="text-white d-block py-2 text-decoration-none">Contact Support Team</a>
                             </li>
-                        </ul> 
+                        </ul>
                     </li>
                     <li>
                         <a href="#" class="text-white d-block py-2 text-decoration-none">Profile</a>
                     </li>
-                    @RenderSection("Submenu" , required: false)
+                    <li>
+                        <a href="#" class="text-white d-block py-2 text-decoration-none">Products</a>
+                    </li>
+                    @RenderSection("Submenu", required: false)
                 </ul>
             </aside>
             <!-- End Sidebar  -->
