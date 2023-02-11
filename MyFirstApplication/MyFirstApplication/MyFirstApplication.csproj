@@ -115,13 +115,13 @@
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\OurCompanyProducts.cshtml" />
-    <Content Include="Views\Home\contact.cshtml" />
     <Content Include="Views\Admin\Dashboard.cshtml" />
     <Content Include="Views\Account\InvalidLogin.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Home\StudentDetails.cshtml" />
     <Content Include="Views\Home\RequestExample.cshtml" />
     <Content Include="Views\Home\ResponseExample.cshtml" />
+    <Content Include="Views\Shared\contact.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
