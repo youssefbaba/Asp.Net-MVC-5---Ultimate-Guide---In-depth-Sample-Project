@@ -15,6 +15,7 @@ namespace MyFirstApplication.Controllers
         // GET: /admin/contact
         public ActionResult Contact()
         {
+            ViewBag.Phone = "456-456-456";
             return View();
         }
     }
