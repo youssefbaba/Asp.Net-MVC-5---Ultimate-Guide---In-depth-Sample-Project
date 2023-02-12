@@ -39,6 +39,8 @@ namespace ModelExample.Controllers
 
         [HttpPost]
         // POST:
+        //public ActionResult Create([Bind(Include = "ProductId, ProductName")] Product product)   // Bind Attribute
+        //public ActionResult Create([Bind(Exclude = "Rate")] Product product)   // Bind Attribute
         public ActionResult Create(Product product)
         {
             return View("Details", product);
