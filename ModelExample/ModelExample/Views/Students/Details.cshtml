@@ -1,0 +1,23 @@
+﻿@model ModelExample.Models.Student
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>#</th>
+            <td>@Model.StudentId</td>
+        </tr>
+        <tr>
+            <th>Student Name</th>
+            <td>@Model.StudentName</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>@Model.Address</td>
+        </tr>
+    </tbody>
+</table>
+
