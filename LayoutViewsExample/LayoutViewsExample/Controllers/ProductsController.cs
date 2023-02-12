@@ -34,14 +34,14 @@ namespace LayoutViewsExample.Controllers
 
         [HttpGet]
         // GET : /products/getProductid/Camera
-        public ActionResult GetProductId(string id)
+        public ActionResult GetProductId(string productName)
         {
-            if (string.IsNullOrWhiteSpace(id))
+            if (string.IsNullOrWhiteSpace(productName))
             {
                 return Content("Please pass any ProductName");
             }
             var products = GetProducts();
-            var product = products.SingleOrDefault(p => p.ProductName == id);
+            var product = products.SingleOrDefault(p => p.ProductName == productName);
             if (product == null)
             {
                 return HttpNotFound();
