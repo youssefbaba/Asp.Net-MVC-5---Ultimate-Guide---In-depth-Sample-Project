@@ -13,13 +13,12 @@ namespace ModelExample.Controllers
         public ActionResult Index()
         {
             List<Product> products = GetProducts().ToList();
-            ViewBag.products = products;
-            return View();
+            return View(products);
         }
 
         [HttpGet]
         [Route("Products/Details/{productId:int}")]
-        // GET: /Products/Details
+        // GET: /Products/Details/1
         public ActionResult Details(int productId)
         {
             List<Product> products = GetProducts().ToList();
@@ -28,8 +27,7 @@ namespace ModelExample.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.product = product;
-            return View();
+            return View(product);
         }
 
         [NonAction]
