@@ -30,6 +30,43 @@ namespace ModelExample.Controllers
             return View(product);
         }
 
+        [HttpGet]
+        // GET: /Products/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        // POST:
+        public ActionResult Create(Product product)
+        {
+            return View("Details", product);
+        }
+
+        [HttpGet]
+        // GET: /Products/DemoBindingOfSimpleType?pageNumber=2
+        public ActionResult DemoBindingOfSimpleType(int pageNumber)
+        {
+            ViewBag.pageNumber = pageNumber;
+            return View();
+        }
+
+        [HttpGet]
+        // GET: /Products/ModelBindingOfComplexeAndSimpleType
+        public ActionResult ModelBindingOfComplexeAndSimpleType()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        // POST:
+        public ActionResult ModelBindingOfComplexeAndSimpleType(Product product, int numberPage)
+        {
+            ViewBag.numberPage = numberPage;
+            return View("Show", product);
+        }
+
         [NonAction]
         private IEnumerable<Product> GetProducts()
         {

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "ModelBindingOfComplexeAndSimpleType";
+}
+
+<h2>ModelBindingOfComplexeAndSimpleType</h2>
+<form action="@Url.Action("ModelBindingOfComplexeAndSimpleType", "Products")"  method="post">
+    <div class="form-group">
+        <label for="productId">Product Id</label>
+        <input type="number" class="form-control" id="productId" placeholder="Product Id" name="ProductId" required>
+    </div>
+    <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" class="form-control" id="productName" placeholder="Product Name" name="ProductName" required>
+    </div>
+    <div class="form-group">
+        <label for="rate">Rate</label>
+        <input type="number" class="form-control" id="rate" placeholder="Rate" name="Rate" required>
+    </div>
+    <input type="hidden" name="numberPage" value="6" />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

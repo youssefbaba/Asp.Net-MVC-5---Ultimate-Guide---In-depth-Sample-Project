@@ -127,6 +127,10 @@
     <Content Include="Views\Home\Profile.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\DemoBindingOfSimpleType.cshtml" />
+    <Content Include="Views\Products\ModelBindingOfComplexeAndSimpleType.cshtml" />
+    <Content Include="Views\Products\Show.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

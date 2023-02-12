@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create New Product</h2>
+<form action="@Url.Action("Create","Products")" method="post">
+    <div class="form-group">
+        <label for="productId">Product Id</label>
+        <input type="number" class="form-control" id="productId" placeholder="Product Id" name="ProductId" required>
+    </div>
+    <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" class="form-control" id="productName" placeholder="Product Name" name="ProductName" required>
+    </div>
+    <div class="form-group">
+        <label for="rate">Rate</label>
+        <input type="number" class="form-control" id="rate" placeholder="Rate" name="Rate" min="0" required>
+    </div>
+    <button type="button" class="btn btn-danger" id="js-cancel">Cancel</button>
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#js-cancel").click(function () {
+                window.location.href = "@Url.Action("Index", "Products")";
+            });
+        });
+    </script>
+}
+
+
