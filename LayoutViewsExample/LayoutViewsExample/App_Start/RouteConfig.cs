@@ -9,13 +9,10 @@ namespace LayoutViewsExample
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "ProductsRoute",
-                url: "{controller}/{action}/{productName}",
-                defaults: new { },
-                constraints: new { productName = @"^[A-Za-z ]*$" }
-            );
+            routes.MapMvcAttributeRoutes();  // To Enable Attribute Routing
 
+            // To Disable Convention Routing
+            /*
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
@@ -26,6 +23,7 @@ namespace LayoutViewsExample
                     id = UrlParameter.Optional
                 }
             );
+            */
         }
     }
 }

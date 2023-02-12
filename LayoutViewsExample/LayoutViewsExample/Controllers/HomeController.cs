@@ -6,7 +6,9 @@ namespace LayoutViewsExample.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
-        // GET: /home/index
+        [Route("Home/Index")]
+        [Route("")]  // Default Route
+        // GET: /Home/Index
         public ActionResult Index()
         {
             ViewBag.Message1 = "Welcome To Demo Application";
@@ -14,6 +16,7 @@ namespace LayoutViewsExample.Controllers
         }
 
         [ChildActionOnly]
+        [Route("Home/DemoPartialView")]
         public ActionResult DemoPartialView()
         {
             ViewBag.ListTitle = "Home : ";
@@ -22,7 +25,8 @@ namespace LayoutViewsExample.Controllers
         }
 
         [HttpGet]
-        // GET: /home/about
+        [Route("Home/About")]
+        // GET: /Home/About
         public ActionResult About()
         {
             ViewBag.Message1 = "Leading Company In The World";
@@ -30,7 +34,8 @@ namespace LayoutViewsExample.Controllers
         }
 
         [HttpGet]
-        // GET: /home/contact
+        [Route("Home/Contact")]
+        // GET: /Home/Contact
         public ActionResult Contact()
         {
             ViewBag.Message1 = "Contact Our Customer Care Representative";
@@ -38,7 +43,8 @@ namespace LayoutViewsExample.Controllers
         }
 
         [HttpGet]
-        // GET: /home/profile
+        [Route("Home/Profile")]
+        // GET: /Home/Profile
         public new ActionResult Profile()
         {
             return View();

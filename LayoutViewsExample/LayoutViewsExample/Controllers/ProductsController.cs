@@ -8,7 +8,8 @@ namespace LayoutViewsExample.Controllers
     public class ProductsController : Controller
     {
         [HttpGet]
-        // GET: /products/index
+        [Route("Products/Index")]
+        // GET: /Products/Index
         public ActionResult Index()
         {
             var products = GetProducts();
@@ -16,7 +17,9 @@ namespace LayoutViewsExample.Controllers
         }
 
         [HttpGet]
-        // GET : /products/details/1
+        //[Route("Products/Details/{id:int:range(1,4)}")]  // In This Case id is mandatory
+        [Route("Products/Details/{id:int:range(1,4)?}")]  // In This Case id is optional
+        // GET : /Products/Details/1
         public ActionResult Details(int? id)
         {
             if (!id.HasValue)
@@ -33,7 +36,9 @@ namespace LayoutViewsExample.Controllers
         }
 
         [HttpGet]
-        // GET : /products/getProductid/Camera
+        //[Route("Products/GetProductId/{productName:maxlength(50)}")]  // In This Case productName is mandatory
+        [Route("Products/GetProductId/{productName:maxlength(50)?}")]  // In This Case productName is optional
+        // GET : /Products/GetProductId/Camera
         public ActionResult GetProductId(string productName)
         {
             if (string.IsNullOrWhiteSpace(productName))
