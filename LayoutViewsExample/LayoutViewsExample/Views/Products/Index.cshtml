@@ -1,4 +1,4 @@
-﻿@using System;
+﻿@model  IEnumerable<LayoutViewsExample.Models.Product>
 @{
     ViewBag.Title = "Products";
 }
@@ -13,18 +13,17 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var product in ViewBag.Products)
+        @foreach (var product in Model)
         {
-            Type type = product.GetType();
             <tr>
                 <td>
-                    @((int)type.GetProperty("ProductId").GetValue(product, null))
+                    @product.ProductId
                 </td>
                 <td>
-                    @((string)type.GetProperty("ProductName").GetValue(product, null))
+                    @product.ProductName
                 </td>
                 <td>
-                    @((int)type.GetProperty("Price").GetValue(product, null))
+                    @product.Price
                 </td>
             </tr>
         }

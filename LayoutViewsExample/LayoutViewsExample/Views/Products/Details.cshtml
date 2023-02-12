@@ -1,0 +1,25 @@
+﻿@model LayoutViewsExample.Models.Product
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details Product</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>#</th>
+            <td>@Model.ProductId</td>
+        </tr>
+        <tr>
+            <th>Product Name</th>
+            <td>@Model.ProductName</td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>@Model.Price</td>
+        </tr>
+
+    </tbody>
+</table>
+
+
