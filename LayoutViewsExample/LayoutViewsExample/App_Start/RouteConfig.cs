@@ -11,12 +11,9 @@ namespace LayoutViewsExample
 
             routes.MapRoute(
                 name: "ProductsRoute",
-                url: "products/GetProductId/{productName}",
-                defaults: new
-                {
-                    controller = "Products",
-                    action = "GetProductId",
-                }
+                url: "{controller}/{action}/{productName}",
+                defaults: new { },
+                constraints: new { productName = @"^[A-Za-z ]*$" }
             );
 
             routes.MapRoute(
