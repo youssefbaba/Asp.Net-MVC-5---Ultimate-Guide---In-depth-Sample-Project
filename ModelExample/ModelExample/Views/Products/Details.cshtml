@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details Of Product</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>#</th>
+            <td>@ViewBag.product.ProductId</td>
+        </tr>
+        <tr>
+            <th>Product Name</th>
+            <td>@ViewBag.product.ProductName</td>
+        </tr>
+        <tr>
+            <th>Rate</th>
+            <td>@ViewBag.product.Rate</td>
+        </tr>
+    </tbody>
+</table>
+<a href="/products/index" class="text-decoration-none"><span><i class="fa-solid fa-arrow-left-long mr-1"></i></span><span>Back To Products</span></a>
+
+
