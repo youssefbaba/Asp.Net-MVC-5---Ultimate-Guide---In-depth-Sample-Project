@@ -6,7 +6,7 @@
 <h2>Products</h2>
 <div class="row">
     <div class="col-8">
-        <a href="#" class="btn btn-primary"><i class="fa-solid fa-plus fa-sm mr-1"></i><span>New Product</span> </a>
+        <a href="@Url.Action("Create", "Products")" class="btn btn-primary"><i class="fa-solid fa-plus fa-sm mr-1"></i><span>New Product</span></a>
     </div>
     <form action="@Url.Action("Index" , "Products")" method="get" class="col-4">
         <div class="input-group">
@@ -41,7 +41,7 @@
             <td>@product.BrandID</td>
             <td>@product.Active</td>
             <td>
-                <a href="@Url.Action("Details", "Products", new { @productId = product.ProductID })"  class="btn btn-success"><i class="fa-solid fa-eye fa-sm mr-1"></i><span>View</span></a>
+                <a href="@Url.Action("Details", "Products", new { @productId = product.ProductID })" class="btn btn-success"><i class="fa-solid fa-eye fa-sm mr-1"></i><span>View</span></a>
             </td>
         </tr>
     }

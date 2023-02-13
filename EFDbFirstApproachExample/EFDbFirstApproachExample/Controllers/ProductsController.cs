@@ -46,5 +46,27 @@ namespace EFDbFirstApproachExample.Controllers
             }
             return View(product);
         }
+
+        [HttpGet]
+        // GET: /Products/Create
+        public ActionResult Create()
+        {
+            var viewModel = new CategoriesBrandsViewModel()
+            {
+                Categories = _db.Categories.ToList(),
+                Brands = _db.Brands.ToList()
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        // POST
+        public ActionResult Create(Product product)
+        {
+            //return Content($"{ObjectInfo.Print(product)}");
+            _db.Products.Add(product);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

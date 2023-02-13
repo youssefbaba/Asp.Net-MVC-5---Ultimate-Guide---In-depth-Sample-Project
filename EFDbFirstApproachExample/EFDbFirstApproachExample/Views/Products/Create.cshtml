@@ -1,0 +1,69 @@
+﻿@model EFDbFirstApproachExample.Models.CategoriesBrandsViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Product</h2>
+<form action="@Url.Action("Create", "Products")" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="productName">Product Name</label>
+            <input type="text" class="form-control" name="ProductName" id="productName" placeholder="Product Name" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" name="Price" id="price" placeholder="Price" min="0" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="dateOfPurchase">Date Of Purchase</label>
+            <input type="date" class="form-control" name="DateOfPurchase" id="dateOfPurchase" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="availabilityStatus">Availability Status</label>
+            <select class="form-control" name="AvailabilityStatus" id="availabilityStatus">
+                <option value="">Please Select</option>
+                <option value="InStock">InStock</option>
+                <option value="OutOfStock">OutOfStock</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="categoryID">Category Id</label>
+            <select class="form-control" name="CategoryID" id="categoryID">
+                <option value="">Please Select</option>
+                @foreach (var item in Model.Categories)
+                {
+                    <option value="@item.CategoryID">@item.CategoryID</option>
+                }
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="brandID">Brand Id</label>
+            <select class="form-control" name="BrandID" id="brandID">
+                <option value="">Please Select</option>
+                @foreach (var item in Model.Brands)
+                {
+                    <option value="@item.BrandID">@item.BrandID</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-check d-flex align-items-center mb-3">
+        <input class="form-check-input" type="checkbox" id="active" name="Active" value="true">
+        <label class="form-check-label" for="active">Active</label>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-danger" id="js-cancel">Cancel</button>
+        <button type="submit" class="btn btn-success">Create</button>
+    </div>
+</form>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#js-cancel").click(function () {
+                window.location.href = "@Url.Action("Index", "Products")";
+            });
+        });
+    </script>
+}
+
