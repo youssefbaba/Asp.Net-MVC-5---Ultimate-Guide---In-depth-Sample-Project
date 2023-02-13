@@ -17,15 +17,102 @@ namespace EFDbFirstApproachExample.Controllers
 
         [HttpGet]
         // GET: /Products/Index
-        public ActionResult Index(string keyWord = "")
+        public ActionResult Index(string keyWord = "", string criteria = "ProductName", string order = "asc")
         {
+            ViewBag.keyWord = keyWord;
             List<Product> products;
             products = _db.Products
                 .Include(p => p.Category)
                 .Include(p => p.Brand)
                 .Where(p => p.ProductName.Contains(keyWord))
                 .ToList();
-            ViewBag.keyWord = keyWord;
+
+            // Sorting
+            ViewBag.criteria = criteria;
+            ViewBag.order = order;
+            switch (criteria)
+            {
+                case "ProductID":
+                    if (order == "asc")
+                    {
+                        products = products.OrderBy(p => p.ProductID).ToList();
+                    }
+                    else
+                    {
+                        products = products.OrderByDescending(p => p.ProductID).ToList();
+                    }
+                    break;
+                case "ProductName":
+                    if (order == "asc")
+                    {
+                        products = products.OrderBy(p => p.ProductName).ToList();
+                    }
+                    else
+                    {
+                        products = products.OrderByDescending(p => p.ProductName).ToList();
+                    }
+                    break;
+                case "Price":
+                    if (order == "asc")
+                    {
+                        products = products.OrderBy(p => p.Price).ToList();
+                    }
+                    else
+                    {
+                        products = products.OrderByDescending(p => p.Price).ToList();
+                    }
+                    break;
+                case "DateOfPurchase":
+                    if (order == "asc")
+                    {
+                        products = products.OrderBy(p => p.DateOfPurchase).ToList();
+                    }
+                    else
+                    {
+                        products = products.OrderByDescending(p => p.DateOfPurchase).ToList();
+                    }
+                    break;
+                case "AvailabilityStatus":
+                    if (order == "asc")
+                    {
+                        products = products.OrderBy(p => p.AvailabilityStatus).ToList();
+                    }
+                    else
+                    {
+                        products = products.OrderByDescending(p => p.AvailabilityStatus).ToList();
+                    }
+                    break;
+                case "Category":
+                    if (order == "asc")
+                    {
+                        products = products.OrderBy(p => p.Category.CategoryName).ToList();
+                    }
+                    else
+                    {
+                        products = products.OrderByDescending(p => p.Category.CategoryName).ToList();
+                    }
+                    break;
+                case "Brand":
+                    if (order == "asc")
+                    {
+                        products = products.OrderBy(p => p.Brand.BrandName).ToList();
+                    }
+                    else
+                    {
+                        products = products.OrderByDescending(p => p.Brand.BrandName).ToList();
+                    }
+                    break;
+                case "Active":
+                    if (order == "asc")
+                    {
+                        products = products.OrderBy(p => p.Active).ToList();
+                    }
+                    else
+                    {
+                        products = products.OrderByDescending(p => p.Active).ToList();
+                    }
+                    break;
+            }
             return View(products);
         }
 
