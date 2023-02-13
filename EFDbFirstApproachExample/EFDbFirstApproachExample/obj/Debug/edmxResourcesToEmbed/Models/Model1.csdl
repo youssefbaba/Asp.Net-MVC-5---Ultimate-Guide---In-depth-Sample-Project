@@ -67,5 +67,18 @@
       <End Role="Categories" EntitySet="Categories" />
       <End Role="Products" EntitySet="Products" />
     </AssociationSet>
+    <FunctionImport Name="getProductsByBrandID" ReturnType="Collection(EFDBFirstDatabaseModel.getProductsByBrandID_Result)">
+      <Parameter Name="BrandID" Mode="In" Type="Int64" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="getProductsByBrandID_Result">
+    <Property Type="Int64" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="15" Scale="2" />
+    <Property Type="DateTime" Name="DateOfPurchase" Nullable="true" Precision="23" />
+    <Property Type="String" Name="AvailabilityStatus" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="CategoryID" Nullable="true" />
+    <Property Type="Int64" Name="BrandID" Nullable="true" />
+    <Property Type="Boolean" Name="Active" Nullable="true" />
+  </ComplexType>
 </Schema>

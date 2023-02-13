@@ -12,6 +12,8 @@ namespace EFDbFirstApproachExample.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class EFDBFirstDatabaseEntities : DbContext
     {
@@ -28,5 +30,14 @@ namespace EFDbFirstApproachExample.Models
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+    
+        public virtual ObjectResult<getProductsByBrandID_Result> getProductsByBrandID(Nullable<long> brandID)
+        {
+            var brandIDParameter = brandID.HasValue ?
+                new ObjectParameter("BrandID", brandID) :
+                new ObjectParameter("BrandID", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getProductsByBrandID_Result>("getProductsByBrandID", brandIDParameter);
+        }
     }
 }

@@ -51,6 +51,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="getProductsByBrandID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BrandID" Type="bigint" Mode="In" />
+  </Function>
   <EntityContainer Name="EFDBFirstDatabaseModelStoreContainer">
     <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
