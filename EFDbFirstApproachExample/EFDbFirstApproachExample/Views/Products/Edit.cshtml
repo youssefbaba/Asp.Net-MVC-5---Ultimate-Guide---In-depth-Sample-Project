@@ -51,11 +51,11 @@
                 {
                     if (item.CategoryID == Model.Product.CategoryID)
                     {
-                        <option value="@item.CategoryID" selected>@item.CategoryID</option>
+                        <option value="@item.CategoryID" selected>@item.CategoryName</option>
                     }
                     else
                     {
-                        <option value="@item.CategoryID">@item.CategoryID</option>
+                        <option value="@item.CategoryID">@item.CategoryName</option>
                     }
                 }
             </select>
@@ -68,11 +68,11 @@
                 {
                     if (item.BrandID == Model.Product.BrandID)
                     {
-                        <option value="@item.BrandID" selected>@item.BrandID</option>
+                        <option value="@item.BrandID" selected>@item.BrandName</option>
                     }
                     else
                     {
-                        <option value="@item.BrandID">@item.BrandID</option>
+                        <option value="@item.BrandID">@item.BrandName</option>
                     }
                 }
             </select>

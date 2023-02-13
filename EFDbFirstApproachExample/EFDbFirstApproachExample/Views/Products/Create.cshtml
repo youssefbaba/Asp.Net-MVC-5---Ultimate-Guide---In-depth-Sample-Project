@@ -42,7 +42,7 @@
                 <option value="">Please Select</option>
                 @foreach (var item in Model.Categories)
                 {
-                    <option value="@item.CategoryID">@item.CategoryID</option>
+                    <option value="@item.CategoryID">@item.CategoryName</option>
                 }
             </select>
         </div>
@@ -52,7 +52,7 @@
                 <option value="">Please Select</option>
                 @foreach (var item in Model.Brands)
                 {
-                    <option value="@item.BrandID">@item.BrandID</option>
+                    <option value="@item.BrandID">@item.BrandName</option>
                 }
             </select>
         </div>

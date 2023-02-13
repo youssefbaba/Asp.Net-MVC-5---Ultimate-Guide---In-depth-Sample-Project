@@ -1,5 +1,6 @@
 ﻿using EFDbFirstApproachExample.Models;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -19,7 +20,11 @@ namespace EFDbFirstApproachExample.Controllers
         public ActionResult Index(string keyWord = "")
         {
             List<Product> products;
-            products = _db.Products.Where(p => p.ProductName.Contains(keyWord)).ToList();
+            products = _db.Products
+                .Include(p => p.Category)
+                .Include(p => p.Brand)
+                .Where(p => p.ProductName.Contains(keyWord))
+                .ToList();
             ViewBag.keyWord = keyWord;
             return View(products);
         }
@@ -29,7 +34,10 @@ namespace EFDbFirstApproachExample.Controllers
         // GET: /Products/Details/1
         public ActionResult Details(long productId)
         {
-            Product product = _db.Products.SingleOrDefault(p => p.ProductID == productId);
+            Product product = _db.Products
+                .Include(p => p.Category)
+                .Include(p => p.Brand)
+                .SingleOrDefault(p => p.ProductID == productId);
             if (product == null)
             {
                 return HttpNotFound();
@@ -54,7 +62,10 @@ namespace EFDbFirstApproachExample.Controllers
         [Route("Products/Edit/{productId:long}")]
         public ActionResult Edit(long productId)
         {
-            Product product = _db.Products.SingleOrDefault(p => p.ProductID == productId);
+            Product product = _db.Products
+                .Include(p => p.Category)
+                .Include(p => p.Brand)
+                .SingleOrDefault(p => p.ProductID == productId);
             if (product == null)
             {
                 return HttpNotFound();

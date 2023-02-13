@@ -5,10 +5,10 @@
 
 <h2>Products</h2>
 <div class="row">
-    <div class="col-8">
+    <div class="col-8 mb-3">
         <a href="@Url.Action("Create", "Products")" class="btn btn-primary"><i class="fa-solid fa-plus fa-sm mr-1"></i><span>New Product</span></a>
     </div>
-    <form action="@Url.Action("Index" , "Products")" method="get" class="col-4">
+    <form action="@Url.Action("Index" , "Products")" method="get" class="col-4 mb-3">
         <div class="input-group">
             <input type="search" class="form-control" placeholder="Search" name="keyWord" value="@ViewBag.keyWord">
             <div class="input-group-append">
@@ -24,8 +24,8 @@
         <th>Price</th>
         <th>Date Of Purchase</th>
         <th>Availability Status</th>
-        <th>Category Id</th>
-        <th>Brand Id</th>
+        <th>Category</th>
+        <th>Brand</th>
         <th>Active</th>
         <th>Action</th>
     </tr>
@@ -37,8 +37,8 @@
             <td>@string.Format("{0:C}", product.Price)</td>
             <td>@string.Format("{0:dd/MM/yyyy}", product.DateOfPurchase)</td>
             <td>@product.AvailabilityStatus</td>
-            <td>@product.CategoryID</td>
-            <td>@product.BrandID</td>
+            <td>@product.Category.CategoryName</td>
+            <td>@product.Brand.BrandName</td>
             <td>@product.Active</td>
             <td>
                 <a href="@Url.Action("Details", "Products", new { @productId = product.ProductID })" class="btn btn-success"><i class="fa-solid fa-eye fa-sm mr-1"></i><span>View</span></a>
