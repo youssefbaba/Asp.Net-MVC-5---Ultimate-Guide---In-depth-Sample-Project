@@ -42,6 +42,7 @@
             <td>@product.Active</td>
             <td>
                 <a href="@Url.Action("Details", "Products", new { @productId = product.ProductID })" class="btn btn-success"><i class="fa-solid fa-eye fa-sm mr-1"></i><span>View</span></a>
+                <a href="@Url.Action("Edit", "Products", new { @productId = product.ProductID })" class="btn btn-primary"><i class="fa-solid fa-pen-to-square fa-sm mr-1"></i><span>Edit</span></a>
             </td>
         </tr>
     }

@@ -53,6 +53,25 @@ namespace EFDbFirstApproachExample.Controllers
         {
             var viewModel = new CategoriesBrandsViewModel()
             {
+                Product = new Product(),
+                Categories = _db.Categories.ToList(),
+                Brands = _db.Brands.ToList()
+            };
+            return View(viewModel);
+        }
+
+        [HttpGet]
+        [Route("Products/Edit/{productId:long}")]
+        public ActionResult Edit(long productId)
+        {
+            Product product = _db.Products.SingleOrDefault(p => p.ProductID == productId);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            var viewModel = new CategoriesBrandsViewModel()
+            {
+                Product = product,
                 Categories = _db.Categories.ToList(),
                 Brands = _db.Brands.ToList()
             };
@@ -60,11 +79,28 @@ namespace EFDbFirstApproachExample.Controllers
         }
 
         [HttpPost]
-        // POST
-        public ActionResult Create(Product product)
+        // POST:
+        public ActionResult Save(Product product)
         {
-            //return Content($"{ObjectInfo.Print(product)}");
-            _db.Products.Add(product);
+            if (product.ProductID == 0)
+            {
+                _db.Products.Add(product);
+            }
+            else
+            {
+                Product productInDb = _db.Products.SingleOrDefault(p => p.ProductID == product.ProductID);
+                if (product == null)
+                {
+                    return HttpNotFound();
+                }
+                productInDb.ProductName = product.ProductName;
+                productInDb.Price = product.Price;
+                productInDb.DateOfPurchase = product.DateOfPurchase;
+                productInDb.AvailabilityStatus = product.AvailabilityStatus;
+                productInDb.CategoryID = product.CategoryID;
+                productInDb.BrandID = product.BrandID;
+                productInDb.Active = product.Active;
+            }
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

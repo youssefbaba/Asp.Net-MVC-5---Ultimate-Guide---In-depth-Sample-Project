@@ -1,29 +1,29 @@
 ﻿@model EFDbFirstApproachExample.Models.CategoriesBrandsViewModel
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Create Product</h2>
+<h2>Edit Product</h2>
 <form action="@Url.Action("Save", "Products")" method="post">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="productName">Product Name</label>
-            <input type="text" class="form-control" name="ProductName" id="productName" placeholder="Product Name" />
+            <input type="text" class="form-control" name="ProductName" id="productName" placeholder="Product Name" value="@Model.Product.ProductName" />
         </div>
         <div class="form-group col-md-6">
             <label for="price">Price</label>
-            <input type="number" class="form-control" name="Price" id="price" placeholder="Price" min="0" />
+            <input type="number" class="form-control" name="Price" id="price" placeholder="Price" min="0" value="@Model.Product.Price" />
         </div>
         <div class="form-group col-md-6">
             <label for="dateOfPurchase">Date Of Purchase</label>
-            <input type="date" class="form-control" name="DateOfPurchase" id="dateOfPurchase" />
+            <input type="date" class="form-control" name="DateOfPurchase" id="dateOfPurchase" value="@string.Format("{0:yyyy-MM-dd}", Model.Product.DateOfPurchase)" />
         </div>
         <div class="form-group col-md-6">
             <label for="availabilityStatus">Availability Status</label>
             <select class="form-control" name="AvailabilityStatus" id="availabilityStatus">
                 @{
                     Dictionary<string, string> status = new Dictionary<string, string>()
-                    {
+                                                                    {
                        {"Please Select" , ""},
                        {"InStock" , "InStock"},
                        {"OutOfStock" , "OutOfStock"},
@@ -31,7 +31,14 @@
                     };
                     foreach (var item in status.Keys)
                     {
-                        <option value="@status[item]">@item</option>
+                        if (Model.Product.AvailabilityStatus == status[item])
+                        {
+                            <option value="@status[item]" selected>@item</option>
+                        }
+                        else
+                        {
+                            <option value="@status[item]">@item</option>
+                        }
                     }
                 }
             </select>
@@ -42,7 +49,14 @@
                 <option value="">Please Select</option>
                 @foreach (var item in Model.Categories)
                 {
-                    <option value="@item.CategoryID">@item.CategoryID</option>
+                    if (item.CategoryID == Model.Product.CategoryID)
+                    {
+                        <option value="@item.CategoryID" selected>@item.CategoryID</option>
+                    }
+                    else
+                    {
+                        <option value="@item.CategoryID">@item.CategoryID</option>
+                    }
                 }
             </select>
         </div>
@@ -52,19 +66,26 @@
                 <option value="">Please Select</option>
                 @foreach (var item in Model.Brands)
                 {
-                    <option value="@item.BrandID">@item.BrandID</option>
+                    if (item.BrandID == Model.Product.BrandID)
+                    {
+                        <option value="@item.BrandID" selected>@item.BrandID</option>
+                    }
+                    else
+                    {
+                        <option value="@item.BrandID">@item.BrandID</option>
+                    }
                 }
             </select>
         </div>
     </div>
     <div class="form-check d-flex align-items-center mb-3">
-        <input class="form-check-input" type="checkbox" id="active" name="Active" value="true">
+        <input class="form-check-input" type="checkbox" id="active" name="Active" value="true"  @(Model.Product.Active.HasValue ? "checked=true" : "") >
         <label class="form-check-label" for="active">Active</label>
     </div>
-    <input type="hidden" name="ProductId" value="" />
+    <input type="hidden" name="ProductID" value="@Model.Product.ProductID" />
     <div class="form-group">
         <button type="button" class="btn btn-danger" id="js-cancel">Cancel</button>
-        <button type="submit" class="btn btn-success">Create</button>
+        <button type="submit" class="btn btn-success">Update</button>
     </div>
 </form>
 
@@ -72,9 +93,10 @@
     <script>
         $(document).ready(function () {
             $("#js-cancel").click(function () {
-                window.location.href = "@Url.Action("Index", "Products")";
+                            window.location.href = "@Url.Action("Index", "Products")";
             });
         });
     </script>
 }
+
 
