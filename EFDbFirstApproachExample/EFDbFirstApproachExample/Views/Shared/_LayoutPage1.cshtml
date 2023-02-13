@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/all.min.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Start Navbar  -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Company</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Categories")">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Brands")">Brands</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Products")">Products</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Navbar  -->
+    <section class="container-fluid" id="content-page">
+        <div class="row">
+            <!-- Start Sidebar  -->
+            <aside class="col-md-4 col-lg-2 bg-primary sidebar d-none d-md-block">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-white d-block py-2 text-decoration-none position-relative">Home</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">Admin Home</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">Agent Home</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">Customer Home</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#aboutSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-white d-block py-2 text-decoration-none position-relative">About</a>
+                        <ul class="collapse list-unstyled" id="aboutSubmenu">
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">About Company</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">About Founders</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">About Team</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#contactSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-white d-block py-2 text-decoration-none position-relative">Contact</a>
+                        <ul class="collapse list-unstyled" id="contactSubmenu">
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">Contact Marketing Team</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">Contact Installation Technician</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-white d-block py-2 text-decoration-none">Contact Support Team</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white d-block py-2 text-decoration-none">Products</a>
+                    </li>
+                </ul>
+            </aside>
+            <!-- End Sidebar  -->
+            <!-- Start Content Page  -->
+            <div class="col-md-8 col-lg-10">
+                @RenderBody()
+            </div>
+            <!-- End Content Page  -->
+        </div>
+    </section>
+    <script src="~/Scripts/jquery-3.6.3.min.js"></script>
+    <script src="~/Scripts/umd/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
