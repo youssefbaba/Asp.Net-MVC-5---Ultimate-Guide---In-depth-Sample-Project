@@ -18,7 +18,8 @@ namespace EFDbFirstApproachExample.Controllers
         // GET: /Products/Index
         public ActionResult Index()
         {
-            List<Product> products = _db.Products.ToList();
+            //List<Product> products = _db.Products.ToList();
+            List<Product> products = _db.Products.Where(p => p.CategoryID == 1 && p.Price >= 50000).ToList();
             return View(products);
         }
     }
