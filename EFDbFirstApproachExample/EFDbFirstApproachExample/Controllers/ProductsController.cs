@@ -19,16 +19,6 @@ namespace EFDbFirstApproachExample.Controllers
         public ActionResult Index(string keyWord = "")
         {
             List<Product> products;
-            products = _db.Products.ToList();
-            //products = _db.Products.Where(p => p.CategoryID == 1 && p.Price >= 50000).ToList();
-            /*
-            SqlParameter[] sqlParameters = new SqlParameter[]
-            {
-                new SqlParameter("@BrandID", 1)
-                //you can add more parameters here
-            };
-            products = _db.Database.SqlQuery<Product>("getProductsByBrandID @BrandID", sqlParameters).ToList();
-            */
             products = _db.Products.Where(p => p.ProductName.Contains(keyWord)).ToList();
             ViewBag.keyWord = keyWord;
             return View(products);
@@ -101,6 +91,19 @@ namespace EFDbFirstApproachExample.Controllers
                 productInDb.BrandID = product.BrandID;
                 productInDb.Active = product.Active;
             }
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(long productId)
+        {
+            Product product = _db.Products.SingleOrDefault(p => p.ProductID == productId);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            _db.Products.Remove(product);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
