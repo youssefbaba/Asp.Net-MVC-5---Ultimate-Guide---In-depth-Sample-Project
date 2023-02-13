@@ -1,6 +1,5 @@
 ﻿using EFDbFirstApproachExample.Models;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -17,16 +16,21 @@ namespace EFDbFirstApproachExample.Controllers
 
         [HttpGet]
         // GET: /Products/Index
-        public ActionResult Index()
+        public ActionResult Index(string keyWord = "")
         {
-            //List<Product> products = _db.Products.ToList();
-            //List<Product> products = _db.Products.Where(p => p.CategoryID == 1 && p.Price >= 50000).ToList();
+            List<Product> products;
+            products = _db.Products.ToList();
+            //products = _db.Products.Where(p => p.CategoryID == 1 && p.Price >= 50000).ToList();
+            /*
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@BrandID", 1)
                 //you can add more parameters here
             };
-            List<Product> products = _db.Database.SqlQuery<Product>("getProductsByBrandID @BrandID", sqlParameters).ToList();
+            products = _db.Database.SqlQuery<Product>("getProductsByBrandID @BrandID", sqlParameters).ToList();
+            */
+            products = _db.Products.Where(p => p.ProductName.Contains(keyWord)).ToList();
+            ViewBag.keyWord = keyWord;
             return View(products);
         }
     }

@@ -4,6 +4,19 @@
 }
 
 <h2>Products</h2>
+<div class="row">
+    <div class="col-8">
+        <a href="#" class="btn btn-primary"><i class="fa-solid fa-plus fa-sm mr-1"></i><span>New Product</span> </a>
+    </div>
+    <form action="@Url.Action("Index" , "Products")" method="get" class="col-4">
+        <div class="input-group">
+            <input type="search" class="form-control" placeholder="Search" name="keyWord" value="@ViewBag.keyWord">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+    </form>
+</div>
 <table class="table">
     <tr>
         <th>#</th>
