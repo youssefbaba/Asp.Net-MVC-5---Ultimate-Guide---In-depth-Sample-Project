@@ -27,6 +27,7 @@
         <th>Category Id</th>
         <th>Brand Id</th>
         <th>Active</th>
+        <th>Action</th>
     </tr>
     @foreach (var product in Model)
     {
@@ -39,6 +40,9 @@
             <td>@product.CategoryID</td>
             <td>@product.BrandID</td>
             <td>@product.Active</td>
+            <td>
+                <a href="@Url.Action("Details", "Products", new { @productId = product.ProductID })"  class="btn btn-success"><i class="fa-solid fa-eye fa-sm mr-1"></i><span>View</span></a>
+            </td>
         </tr>
     }
 </table>

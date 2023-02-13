@@ -1,0 +1,44 @@
+﻿@model EFDbFirstApproachExample.Models.Product
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Product Details</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>#</th>
+            <td>@Model.ProductID</td>
+        </tr>
+        <tr>
+            <th>ProductName</th>
+            <td>@Model.ProductName</td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>@string.Format("{0:C}", Model.Price)</td>
+        </tr>
+        <tr>
+            <th>DateOfPurchase</th>
+            <td>@string.Format("{0:dd/MM/yyyy}", Model.DateOfPurchase)</td>
+        </tr>
+        <tr>
+            <th>AvailabilityStatus</th>
+            <td>@Model.AvailabilityStatus</td>
+        </tr>
+        <tr>
+            <th>CategoryID</th>
+            <td>@Model.CategoryID</td>
+        </tr>
+        <tr>
+            <th>BrandID</th>
+            <td>@Model.BrandID</td>
+        </tr>
+        <tr>
+            <th>Active</th>
+            <td>@Model.Active</td>
+        </tr>
+    </tbody>
+</table>
+<a href="@Url.Action("Index", "Products")" class="text-decoration-none"><i class="fa-solid fa-arrow-left-long fa-sm mr-1"></i><span>Back To Products</span> </a>
+

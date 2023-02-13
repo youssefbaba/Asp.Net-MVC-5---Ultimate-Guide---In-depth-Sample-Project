@@ -33,5 +33,18 @@ namespace EFDbFirstApproachExample.Controllers
             ViewBag.keyWord = keyWord;
             return View(products);
         }
+
+        [HttpGet]
+        [Route("Products/Details/{productId:long}")]
+        // GET: /Products/Details/1
+        public ActionResult Details(long productId)
+        {
+            Product product = _db.Products.SingleOrDefault(p => p.ProductID == productId);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
     }
 }
