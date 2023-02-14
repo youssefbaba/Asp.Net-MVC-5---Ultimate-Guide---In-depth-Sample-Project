@@ -91,9 +91,9 @@
         <th>
             @if (ViewBag.order == "asc")
             {
-                <a href="@Url.Action("Index", "Products" , new {@criteria = "DateOfPurchase" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new {@criteria = "DOP" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
                     <span>Date Of Purchase</span>
-                    @if (ViewBag.criteria == "DateOfPurchase")
+                    @if (ViewBag.criteria == "DOP")
                     {
                         <i class="fa-solid fa-caret-down"></i>
                     }
@@ -101,9 +101,9 @@
             }
             else
             {
-                <a href="@Url.Action("Index", "Products" , new { @criteria = "DateOfPurchase" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new { @criteria = "DOP" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
                     <span>Date Of Purchase</span>
-                    @if (ViewBag.criteria == "DateOfPurchase")
+                    @if (ViewBag.criteria == "DOP")
                     {
                         <i class="fa-solid fa-caret-up"></i>
                     }
@@ -211,7 +211,7 @@
             <td>@product.ProductID</td>
             <td>@product.ProductName</td>
             <td>@string.Format("{0:C}", product.Price)</td>
-            <td>@string.Format("{0:dd/MM/yyyy}", product.DateOfPurchase)</td>
+            <td>@string.Format("{0:dd/MM/yyyy}", product.DOP)</td>
             <td>@product.AvailabilityStatus</td>
             <td>@product.Category.CategoryName</td>
             <td>@product.Brand.BrandName</td>

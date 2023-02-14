@@ -32,7 +32,7 @@
                         ProductID = c.Long(nullable: false, identity: true),
                         ProductName = c.String(),
                         Price = c.Decimal(precision: 18, scale: 2),
-                        DateOfPurchase = c.DateTime(),
+                        DOP = c.DateTime(),
                         AvailabilityStatus = c.String(),
                         CategoryID = c.Long(),
                         BrandID = c.Long(),

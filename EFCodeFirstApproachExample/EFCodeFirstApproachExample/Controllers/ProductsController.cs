@@ -63,14 +63,14 @@ namespace EFCodeFirstApproachExample.Controllers
                         products = products.OrderByDescending(p => p.Price).ToList();
                     }
                     break;
-                case "DateOfPurchase":
+                case "DOP":
                     if (order == "asc")
                     {
-                        products = products.OrderBy(p => p.DateOfPurchase).ToList();
+                        products = products.OrderBy(p => p.DOP).ToList();
                     }
                     else
                     {
-                        products = products.OrderByDescending(p => p.DateOfPurchase).ToList();
+                        products = products.OrderByDescending(p => p.DOP).ToList();
                     }
                     break;
                 case "AvailabilityStatus":
@@ -214,7 +214,7 @@ namespace EFCodeFirstApproachExample.Controllers
                 }
                 productInDb.ProductName = product.ProductName;
                 productInDb.Price = product.Price;
-                productInDb.DateOfPurchase = product.DateOfPurchase;
+                productInDb.DOP = product.DOP;
                 productInDb.AvailabilityStatus = product.AvailabilityStatus;
                 productInDb.CategoryID = product.CategoryID;
                 productInDb.BrandID = product.BrandID;

@@ -149,6 +149,10 @@
     <Compile Include="Migrations\202302141634406_AddQuantityToProducts.designer.cs">
       <DependentUpon>202302141634406_AddQuantityToProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302141720191_AddAnnotations.cs" />
+    <Compile Include="Migrations\202302141720191_AddAnnotations.designer.cs">
+      <DependentUpon>202302141720191_AddAnnotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\CategoriesBrandsViewModel.cs" />
@@ -204,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302141634406_AddQuantityToProducts.resx">
       <DependentUpon>202302141634406_AddQuantityToProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302141720191_AddAnnotations.resx">
+      <DependentUpon>202302141720191_AddAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

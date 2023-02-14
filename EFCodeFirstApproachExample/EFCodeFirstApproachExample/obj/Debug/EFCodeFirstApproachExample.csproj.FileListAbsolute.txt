@@ -84,3 +84,4 @@ C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirs
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.Migrations.ToPopulateBrands.resources
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.Migrations.ToPopulateCategories.resources
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.Migrations.AddQuantityToProducts.resources
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.Migrations.AddAnnotations.resources
