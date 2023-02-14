@@ -4,7 +4,7 @@
 }
 
 <h2>Edit Product</h2>
-<form action="@Url.Action("Save", "Products")" method="post">
+<form action="@Url.Action("Save", "Products")" method="post" enctype="multipart/form-data">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="productName">Product Name</label>
@@ -23,7 +23,7 @@
             <select class="form-control" name="AvailabilityStatus" id="availabilityStatus">
                 @{
                     Dictionary<string, string> status = new Dictionary<string, string>()
-                                                                    {
+                                                                                                    {
                        {"Please Select" , ""},
                        {"InStock" , "InStock"},
                        {"OutOfStock" , "OutOfStock"},
@@ -77,9 +77,22 @@
                 }
             </select>
         </div>
+        <div class="form-group col-md-6">
+            <input type="hidden" name="PhotoName" id="photoName" value="@Model.Product.PhotoName" />
+            <div class="mb-3 pl-0">
+                <img src="data:image;base64,@Model.Product.Photo" alt="Not Found" />
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="photo" name="Photo">
+                @{
+                   var photoLabel =  (Model.Product.PhotoName == null) ? "Choose file" : @Model.Product.PhotoName;
+                }
+                <label class="custom-file-label" for="photo">@photoLabel</label>
+            </div>
+        </div>
     </div>
     <div class="form-check d-flex align-items-center mb-3">
-        <input class="form-check-input" type="checkbox" id="active" name="Active" value="true"  @(Model.Product.Active.HasValue ? "checked=true" : "") >
+        <input class="form-check-input" type="checkbox" id="active" name="Active" value="true" @(Model.Product.Active.HasValue ? "checked=true" : "")>
         <label class="form-check-label" for="active">Active</label>
     </div>
     <input type="hidden" name="ProductID" value="@Model.Product.ProductID" />
@@ -93,7 +106,13 @@
     <script>
         $(document).ready(function () {
             $("#js-cancel").click(function () {
-                            window.location.href = "@Url.Action("Index", "Products")";
+                window.location.href = "@Url.Action("Index", "Products")";
+            });
+
+            $(".custom-file-input").on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                $("#photoName").val(fileName);
             });
         });
     </script>

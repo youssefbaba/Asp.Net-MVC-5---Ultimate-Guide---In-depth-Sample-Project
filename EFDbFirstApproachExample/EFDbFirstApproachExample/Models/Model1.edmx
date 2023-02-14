@@ -31,6 +31,8 @@
           <Property Name="CategoryID" Type="bigint" />
           <Property Name="BrandID" Type="bigint" />
           <Property Name="Active" Type="bit" />
+          <Property Name="Photo" Type="varchar(max)" />
+          <Property Name="PhotoName" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK__Products__BrandI__3C69FB99">
           <End Role="Brands" Type="Self.Brands" Multiplicity="0..1" />
@@ -106,6 +108,8 @@
           <Property Name="Active" Type="Boolean" />
           <NavigationProperty Name="Brand" Relationship="Self.FK__Products__BrandI__3C69FB99" FromRole="Products" ToRole="Brands" />
           <NavigationProperty Name="Category" Relationship="Self.FK__Products__Catego__3B75D760" FromRole="Products" ToRole="Categories" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__Products__BrandI__3C69FB99">
           <End Role="Brands" Type="Self.Brand" Multiplicity="0..1" />
@@ -182,6 +186,8 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="EFDBFirstDatabaseModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Price" ColumnName="Price" />

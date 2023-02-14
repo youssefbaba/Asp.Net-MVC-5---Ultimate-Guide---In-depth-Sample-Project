@@ -180,6 +180,14 @@ namespace EFDbFirstApproachExample.Controllers
         {
             if (product.ProductID == 0)
             {
+                if (Request.Files.Count >= 1)
+                {
+                    var file = Request.Files[0];
+                    var imgBytes = new byte[file.ContentLength];
+                    file.InputStream.Read(imgBytes, 0, file.ContentLength);
+                    var base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
+                    product.Photo = base64String;
+                }
                 _db.Products.Add(product);
             }
             else
@@ -189,6 +197,21 @@ namespace EFDbFirstApproachExample.Controllers
                 {
                     return HttpNotFound();
                 }
+                if (Request.Files.Count >= 1)
+                {
+                    if (Request.Files[0].ContentLength > 0)
+                    {
+                        var file = Request.Files[0];
+                        var imgBytes = new byte[file.ContentLength];
+                        file.InputStream.Read(imgBytes, 0, file.ContentLength);
+                        var base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
+                        product.Photo = base64String;
+                    }
+                    else
+                    {
+                        product.Photo = productInDb.Photo;
+                    }
+                }
                 productInDb.ProductName = product.ProductName;
                 productInDb.Price = product.Price;
                 productInDb.DateOfPurchase = product.DateOfPurchase;
@@ -196,6 +219,8 @@ namespace EFDbFirstApproachExample.Controllers
                 productInDb.CategoryID = product.CategoryID;
                 productInDb.BrandID = product.BrandID;
                 productInDb.Active = product.Active;
+                productInDb.PhotoName = product.PhotoName;
+                productInDb.Photo = product.Photo;
             }
             _db.SaveChanges();
             return RedirectToAction("Index");

@@ -20,6 +20,9 @@
 <table class="table">
     <tr class="bg-light">
         <th>
+            <a class="text-decoration-none">Photo</a>
+        </th>
+        <th>
             @if (ViewBag.order == "asc")
             {
                 <a href="@Url.Action("Index", "Products" , new {@criteria = "ProductID" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
@@ -172,6 +175,7 @@
                     }
                 </a>
             }
+        </th>
         <th>
             @if (ViewBag.order == "asc")
             {
@@ -201,6 +205,9 @@
     @foreach (var product in Model)
     {
         <tr>
+            <td>
+                <img src="data:image;base64,@product.Photo" alt="Not Found"/>
+            </td>
             <td>@product.ProductID</td>
             <td>@product.ProductName</td>
             <td>@string.Format("{0:C}", product.Price)</td>
