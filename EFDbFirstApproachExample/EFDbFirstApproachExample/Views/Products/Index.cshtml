@@ -18,16 +18,185 @@
     </form>
 </div>
 <table class="table">
-    <tr>
-        <th>#</th>
-        <th>Product Name</th>
-        <th>Price</th>
-        <th>Date Of Purchase</th>
-        <th>Availability Status</th>
-        <th>Category</th>
-        <th>Brand</th>
-        <th>Active</th>
-        <th>Action</th>
+    <tr class="bg-light">
+        <th>
+            @if (ViewBag.order == "asc")
+            {
+                <a href="@Url.Action("Index", "Products" , new {@criteria = "ProductID" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Product Id</span>
+                    @if (ViewBag.criteria == "ProductID")
+                    {
+                        <i class="fa-solid fa-caret-down"></i>
+                    }
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Index", "Products" , new { @criteria = "ProductID" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Product Id</span>
+                    @if (ViewBag.criteria == "ProductID")
+                    {
+                        <i class="fa-solid fa-caret-up"></i>
+                    }
+                </a>
+            }
+        </th>
+        <th>
+            @if (ViewBag.order == "asc")
+            {
+                <a href="@Url.Action("Index", "Products" , new {@criteria = "ProductName" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Product Name</span>
+                    @if (ViewBag.criteria == "ProductName")
+                    {
+                        <i class="fa-solid fa-caret-down"></i>
+                    }
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Index", "Products" , new { @criteria = "ProductName" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Product Name</span>
+                    @if (ViewBag.criteria == "ProductName")
+                    {
+                        <i class="fa-solid fa-caret-up"></i>
+                    }
+                </a>
+            }
+        </th>
+        <th>
+            @if (ViewBag.order == "asc")
+            {
+                <a href="@Url.Action("Index", "Products" , new {@criteria = "Price" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Price</span>
+                    @if (ViewBag.criteria == "Price")
+                    {
+                        <i class="fa-solid fa-caret-down"></i>
+                    }
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Index", "Products" , new { @criteria = "Price" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Price</span>
+                    @if (ViewBag.criteria == "Price")
+                    {
+                        <i class="fa-solid fa-caret-up"></i>
+                    }
+                </a>
+            }
+        </th>
+        <th>
+            @if (ViewBag.order == "asc")
+            {
+                <a href="@Url.Action("Index", "Products" , new {@criteria = "DateOfPurchase" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Date Of Purchase</span>
+                    @if (ViewBag.criteria == "DateOfPurchase")
+                    {
+                        <i class="fa-solid fa-caret-down"></i>
+                    }
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Index", "Products" , new { @criteria = "DateOfPurchase" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Date Of Purchase</span>
+                    @if (ViewBag.criteria == "DateOfPurchase")
+                    {
+                        <i class="fa-solid fa-caret-up"></i>
+                    }
+                </a>
+            }
+        </th>
+        <th>
+            @if (ViewBag.order == "asc")
+            {
+                <a href="@Url.Action("Index", "Products" , new {@criteria = "AvailabilityStatus" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Availability Status</span>
+                    @if (ViewBag.criteria == "AvailabilityStatus")
+                    {
+                        <i class="fa-solid fa-caret-down"></i>
+                    }
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Index", "Products" , new { @criteria = "AvailabilityStatus" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Availability Status</span>
+                    @if (ViewBag.criteria == "AvailabilityStatus")
+                    {
+                        <i class="fa-solid fa-caret-up"></i>
+                    }
+                </a>
+            }
+        </th>
+        <th>
+            @if (ViewBag.order == "asc")
+            {
+                <a href="@Url.Action("Index", "Products" , new {@criteria = "Category" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Category</span>
+                    @if (ViewBag.criteria == "Category")
+                    {
+                        <i class="fa-solid fa-caret-down"></i>
+                    }
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Index", "Products" , new { @criteria = "Category" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Category</span>
+                    @if (ViewBag.criteria == "Category")
+                    {
+                        <i class="fa-solid fa-caret-up"></i>
+                    }
+                </a>
+            }
+        </th>
+        <th>
+            @if (ViewBag.order == "asc")
+            {
+                <a href="@Url.Action("Index", "Products" , new {@criteria = "Brand" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Brand</span>
+                    @if (ViewBag.criteria == "Brand")
+                    {
+                        <i class="fa-solid fa-caret-down"></i>
+                    }
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Index", "Products" , new { @criteria = "Brand" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Brand</span>
+                    @if (ViewBag.criteria == "Brand")
+                    {
+                        <i class="fa-solid fa-caret-up"></i>
+                    }
+                </a>
+            }
+        <th>
+            @if (ViewBag.order == "asc")
+            {
+                <a href="@Url.Action("Index", "Products" , new {@criteria = "Active" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Active</span>
+                    @if (ViewBag.criteria == "Active")
+                    {
+                        <i class="fa-solid fa-caret-down"></i>
+                    }
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Index", "Products" , new { @criteria = "Active" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                    <span>Active</span>
+                    @if (ViewBag.criteria == "Active")
+                    {
+                        <i class="fa-solid fa-caret-up"></i>
+                    }
+                </a>
+            }
+        </th>
+        <th>
+            <a class="text-decoration-none">Action</a>
+        </th>
     </tr>
     @foreach (var product in Model)
     {
@@ -70,6 +239,41 @@
         </tr>
     }
 </table>
+@{
+
+    int previousPage = ViewBag.currentPage - 1;
+    if (previousPage < 1)
+    {
+        previousPage = 1;
+    }
+
+    int nextPage = ViewBag.currentPage + 1;
+    if (nextPage > ViewBag.numberOfPages)
+    {
+        nextPage = ViewBag.numberOfPages;
+    }
+}
+<ul class="pagination justify-content-center">
+    <li class="page-item">
+        <a class="page-link" href="@Url.Action("Index", "Products" , new { @criteria = @ViewBag.criteria , @order = @ViewBag.order , @currentPage = @previousPage})">Previous</a>
+    </li>
+    @for (int i = 1; i <= ViewBag.numberOfPages; i++)
+    {
+        if (i == ViewBag.currentPage)
+        {
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="@Url.Action("Index", "Products" , new { @criteria = @ViewBag.criteria , @order = @ViewBag.order , @currentPage = @i})">@i</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Products" , new { @criteria = @ViewBag.criteria, @order = @ViewBag.order, @currentPage = @i})">@i</a></li>
+        }
+    }
+    <li class="page-item">
+        <a class="page-link" href="@Url.Action("Index", "Products" , new { @criteria = @ViewBag.criteria , @order = @ViewBag.order, @currentPage = @nextPage})">Next</a>
+    </li>
+</ul>
 @section scripts{
     <script>
         $(document).ready(function () {
