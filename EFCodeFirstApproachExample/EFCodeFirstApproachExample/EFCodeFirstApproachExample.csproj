@@ -133,18 +133,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202302141310418_InitialMigartion.cs" />
-    <Compile Include="Migrations\202302141310418_InitialMigartion.designer.cs">
-      <DependentUpon>202302141310418_InitialMigartion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202302141313335_ToPopulateBrands.cs" />
-    <Compile Include="Migrations\202302141313335_ToPopulateBrands.designer.cs">
-      <DependentUpon>202302141313335_ToPopulateBrands.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202302141324238_ToPopulateCategories.cs" />
-    <Compile Include="Migrations\202302141324238_ToPopulateCategories.designer.cs">
-      <DependentUpon>202302141324238_ToPopulateCategories.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\CategoriesBrandsViewModel.cs" />
@@ -187,17 +175,6 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202302141310418_InitialMigartion.resx">
-      <DependentUpon>202302141310418_InitialMigartion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202302141313335_ToPopulateBrands.resx">
-      <DependentUpon>202302141313335_ToPopulateBrands.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202302141324238_ToPopulateCategories.resx">
-      <DependentUpon>202302141324238_ToPopulateCategories.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

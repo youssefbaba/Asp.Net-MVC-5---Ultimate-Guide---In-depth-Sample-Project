@@ -15,6 +15,7 @@ namespace EFCodeFirstApproachExample.Models
         public bool? Active { get; set; }
         public string Photo { get; set; }
         public string PhotoName { get; set; }
+        public decimal? Quantity { get; set; }
         public virtual Brand Brand { get; set; }
         public virtual Category Category { get; set; }
     }

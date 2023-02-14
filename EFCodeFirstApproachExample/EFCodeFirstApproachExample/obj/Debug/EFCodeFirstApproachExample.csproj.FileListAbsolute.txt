@@ -79,7 +79,3 @@ C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirs
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.csproj.CopyComplete
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.dll
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.pdb
-C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.Migrations.InitialMigartion.resources
-C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.csproj.GenerateResource.cache
-C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.Migrations.ToPopulateBrands.resources
-C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.Migrations.ToPopulateCategories.resources
