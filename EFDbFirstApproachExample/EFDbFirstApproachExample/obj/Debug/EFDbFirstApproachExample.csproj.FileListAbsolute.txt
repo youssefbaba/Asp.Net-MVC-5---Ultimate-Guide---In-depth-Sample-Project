@@ -52,6 +52,11 @@ C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstA
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\EntityFramework.dll
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\EntityFramework.SqlServer.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\Glimpse.Ado.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\Glimpse.AspNet.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\Glimpse.Core.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\Glimpse.EF6.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\Glimpse.Mvc5.dll
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\System.Web.Helpers.dll
@@ -74,8 +79,3 @@ C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstA
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\obj\Debug\EFDbFirstApproachExample.csproj.CopyComplete
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\obj\Debug\EFDbFirstApproachExample.dll
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\obj\Debug\EFDbFirstApproachExample.pdb
-C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\Glimpse.Ado.dll
-C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\Glimpse.AspNet.dll
-C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\Glimpse.Core.dll
-C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\Glimpse.EF6.dll
-C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFDbFirstApproachExample\EFDbFirstApproachExample\bin\Glimpse.Mvc5.dll
