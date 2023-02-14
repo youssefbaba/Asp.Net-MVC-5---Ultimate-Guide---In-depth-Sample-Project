@@ -1,0 +1,50 @@
+﻿@model EFCodeFirstApproachExample.Models.Product
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Product Details</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Photo</th>
+            <td>
+            <img src="data:image;base64,@Model.Photo" alt="Not Found" />
+            </td>
+        </tr>
+        <tr>
+            <th>Product Id</th>
+            <td>@Model.ProductID</td>
+        </tr>
+        <tr>
+            <th>ProductName</th>
+            <td>@Model.ProductName</td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>@string.Format("{0:C}", Model.Price)</td>
+        </tr>
+        <tr>
+            <th>DateOfPurchase</th>
+            <td>@string.Format("{0:dd/MM/yyyy}", Model.DateOfPurchase)</td>
+        </tr>
+        <tr>
+            <th>AvailabilityStatus</th>
+            <td>@Model.AvailabilityStatus</td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td>@Model.Category.CategoryName</td>
+        </tr>
+        <tr>
+            <th>Brand</th>
+            <td>@Model.Brand.BrandName</td>
+        </tr>
+        <tr>
+            <th>Active</th>
+            <td>@Model.Active</td>
+        </tr>
+    </tbody>
+</table>
+<a href="@Url.Action("Index", "Products")" class="text-decoration-none"><i class="fa-solid fa-arrow-left-long fa-sm mr-1"></i><span>Back To Products</span> </a>
+

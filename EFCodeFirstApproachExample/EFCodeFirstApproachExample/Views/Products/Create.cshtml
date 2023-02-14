@@ -1,0 +1,93 @@
+﻿@model EFCodeFirstApproachExample.Models.CategoriesBrandsViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Product</h2>
+<form action="@Url.Action("Save", "Products")" method="post" enctype="multipart/form-data">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="productName">Product Name</label>
+            <input type="text" class="form-control" name="ProductName" id="productName" placeholder="Product Name" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" name="Price" id="price" placeholder="Price" min="0" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="dateOfPurchase">Date Of Purchase</label>
+            <input type="date" class="form-control" name="DateOfPurchase" id="dateOfPurchase" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="availabilityStatus">Availability Status</label>
+            <select class="form-control" name="AvailabilityStatus" id="availabilityStatus">
+                @{
+                    Dictionary<string, string> status = new Dictionary<string, string>()
+                                            {
+                       {"Please Select" , ""},
+                       {"InStock" , "InStock"},
+                       {"OutOfStock" , "OutOfStock"},
+
+                    };
+                    foreach (var item in status.Keys)
+                    {
+                        <option value="@status[item]">@item</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="categoryID">Category Id</label>
+            <select class="form-control" name="CategoryID" id="categoryID">
+                <option value="">Please Select</option>
+                @foreach (var item in Model.Categories)
+                {
+                    <option value="@item.CategoryID">@item.CategoryName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="brandID">Brand Id</label>
+            <select class="form-control" name="BrandID" id="brandID">
+                <option value="">Please Select</option>
+                @foreach (var item in Model.Brands)
+                {
+                    <option value="@item.BrandID">@item.BrandName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <input type="hidden" name="PhotoName" id="photoName" value=""/>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="photo" name="Photo">
+                <label class="custom-file-label" for="photo">Choose file</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-check d-flex align-items-center mb-3">
+        <input class="form-check-input" type="checkbox" id="active" name="Active" value="true">
+        <label class="form-check-label" for="active">Active</label>
+    </div>
+    <input type="hidden" name="ProductId" value="" />
+    <div class="form-group">
+        <button type="button" class="btn btn-danger" id="js-cancel">Cancel</button>
+        <button type="submit" class="btn btn-success">Create</button>
+    </div>
+</form>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#js-cancel").click(function () {
+                window.location.href = "@Url.Action("Index", "Products")";
+            });
+
+            $(".custom-file-input").on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                $("#photoName").val(fileName)
+            });
+        });
+    </script>
+}
+
