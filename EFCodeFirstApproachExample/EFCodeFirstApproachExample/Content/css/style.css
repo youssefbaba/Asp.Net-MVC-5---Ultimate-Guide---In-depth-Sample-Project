@@ -3,8 +3,9 @@
     height: 75px;
     border: 1px solid #007bff;
 }
-.field-validation-error{
-    color :red;
+.field-validation-error,
+.validation-summary-errors {
+    color: red;
 }
 .input-validation-error{
     border :2px solid red !important;

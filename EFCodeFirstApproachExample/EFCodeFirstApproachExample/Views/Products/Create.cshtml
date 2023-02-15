@@ -62,6 +62,7 @@
         @Html.CheckBox("Product.Active", new { @class = "form-check-input", @value = "true" })
         @Html.Label("Product.Active", new { @class = "form-check-label" })
     </div>
+    @Html.ValidationSummary()
     <div class="form-group">
         @Html.HiddenFor(model => model.Product.ProductID)
         <button type="button" class="btn btn-danger" id="js-cancel">Cancel</button>
