@@ -54,14 +54,15 @@
         <div class="form-group col-md-6">
             @Html.HiddenFor(model => model.Product.PhotoName)
             <div class="mb-3 pl-0">
-                <img src="data:image;base64,@Model.Product.Photo" alt="Not Found" />
+                <img src="data:image;base64,@Model.Product.Photo" alt="Not Found" id="picture" />
             </div>
             <div class="custom-file">
-                @Html.File("custom-file-input", "photo", "Photo")
+                @Html.File("custom-file-input", "image", "image")
                 @{
-                    var photoLabel = (Model.Product.PhotoName == null) ? "Choose file" : @Model.Product.PhotoName;
+                    var photoLabel = (string.IsNullOrEmpty(Model.Product.PhotoName)) ? "Choose file" : Model.Product.PhotoName;
                 }
-                @Html.Label("", @photoLabel, new { @class = "custom-file-label", @for = "photo" })
+                @Html.Label("", photoLabel, new { @class = "custom-file-label", @for = "image" })
+                @Html.HiddenFor(model => model.Product.Photo)
             </div>
         </div>
     </div>
@@ -78,16 +79,24 @@
 }
 @section scripts{
     <script>
-        $(document).ready(function () {
-            $("#js-cancel").click(function () {
-                window.location.href = "@Url.Action("Index", "Products")";
-            });
+        $("#js-cancel").click(function () {
+            window.location.href = "@Url.Action("Index", "Products")";
+        });
 
-            $(".custom-file-input").on("change", function () {
-                var fileName = $(this).val().split("\\").pop();
-                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-                $("#Product_PhotoName").val(fileName)
-            });
+        $('#image').on('change', function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            $("#Product_PhotoName").val(fileName);
+
+            var base64String = "";
+            var img = this.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                base64String = reader.result.replace("data:", "").replace(/^.+,/, "");
+                $("#Product_Photo").val(base64String);
+                $("#picture").attr("src", reader.result);
+            }
+            reader.readAsDataURL(img);
         });
     </script>
 }

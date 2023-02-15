@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EFCodeFirstApproachExample.Validations;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,6 +20,7 @@ namespace EFCodeFirstApproachExample.Models
 
         [Required(ErrorMessage = "Price can't be blank")]
         [Range(0, 100000, ErrorMessage = "Price should be between 0 and 100000")]
+        [PriceDivisibleBy10(ErrorMessage = "Price should be divisible by 10")]
         public decimal? Price { get; set; }
 
         [Column("DOP", TypeName = "datetime")]

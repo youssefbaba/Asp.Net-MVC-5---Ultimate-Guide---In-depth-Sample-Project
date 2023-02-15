@@ -178,6 +178,7 @@
     <Compile Include="Models\CompanyDbContext.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\PriceDivisibleBy10Attribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

@@ -178,52 +178,49 @@ namespace EFCodeFirstApproachExample.Controllers
         // POST:
         public ActionResult Save(Product product)
         {
-            if (product.ProductID == 0)
+            if (ModelState.IsValid)
             {
-                if (Request.Files.Count >= 1)
+                if (product.ProductID == 0)  // Create
                 {
-                    var file = Request.Files[0];
-                    var imgBytes = new byte[file.ContentLength];
-                    file.InputStream.Read(imgBytes, 0, file.ContentLength);
-                    var base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
-                    product.Photo = base64String;
+                    _db.Products.Add(product);
                 }
-                _db.Products.Add(product);
+                else // Update
+                {
+                    Product productInDb = _db.Products.SingleOrDefault(p => p.ProductID == product.ProductID);
+                    if (product == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    productInDb.ProductName = product.ProductName;
+                    productInDb.Price = product.Price;
+                    productInDb.DOP = product.DOP;
+                    productInDb.AvailabilityStatus = product.AvailabilityStatus;
+                    productInDb.CategoryID = product.CategoryID;
+                    productInDb.BrandID = product.BrandID;
+                    productInDb.Active = product.Active;
+                    productInDb.PhotoName = product.PhotoName;
+                    productInDb.Photo = product.Photo;
+                }
+                _db.SaveChanges();
+                return RedirectToAction("Index");
             }
             else
             {
-                Product productInDb = _db.Products.SingleOrDefault(p => p.ProductID == product.ProductID);
-                if (product == null)
+                var viewModel = new CategoriesBrandsViewModel()
                 {
-                    return HttpNotFound();
-                }
-                if (Request.Files.Count >= 1)
+                    Product = product,
+                    Categories = _db.Categories.ToList(),
+                    Brands = _db.Brands.ToList()
+                };
+                if (product.ProductID == 0)  // Create
                 {
-                    if (Request.Files[0].ContentLength > 0)
-                    {
-                        var file = Request.Files[0];
-                        var imgBytes = new byte[file.ContentLength];
-                        file.InputStream.Read(imgBytes, 0, file.ContentLength);
-                        var base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
-                        product.Photo = base64String;
-                    }
-                    else
-                    {
-                        product.Photo = productInDb.Photo;
-                    }
+                    return View("Create", viewModel);
                 }
-                productInDb.ProductName = product.ProductName;
-                productInDb.Price = product.Price;
-                productInDb.DOP = product.DOP;
-                productInDb.AvailabilityStatus = product.AvailabilityStatus;
-                productInDb.CategoryID = product.CategoryID;
-                productInDb.BrandID = product.BrandID;
-                productInDb.Active = product.Active;
-                productInDb.PhotoName = product.PhotoName;
-                productInDb.Photo = product.Photo;
+                else // Update
+                {
+                    return View("Edit", viewModel);
+                }
             }
-            _db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         [HttpPost]
