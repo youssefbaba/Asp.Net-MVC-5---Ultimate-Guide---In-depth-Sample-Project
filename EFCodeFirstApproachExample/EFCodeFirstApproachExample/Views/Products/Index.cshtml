@@ -8,24 +8,25 @@
     <div class="col-8 mb-3">
         <a href="@Url.Action("Create", "Products")" class="btn btn-primary"><i class="fa-solid fa-plus fa-sm mr-1"></i><span>New Product</span></a>
     </div>
-    <form action="@Url.Action("Index" , "Products")" method="get" class="col-4 mb-3">
+    @using (Html.BeginForm("Index", "Products", FormMethod.Get, new { @class = "col-4 mb-3" }))
+    {
         <div class="input-group">
-            <input type="search" class="form-control" placeholder="Search" name="keyWord" value="@ViewBag.keyWord">
+            @Html.TextBox("keyWord", ViewBag.keyWord as string, null, new { @type = "search", @class = "form-control", @placeholder = "Search" })
             <div class="input-group-append">
                 <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
-    </form>
+    }
 </div>
 <table class="table">
     <tr class="bg-light">
         <th>
-            <a class="text-decoration-none">Photo</a>
+            @Html.ActionLink("Photo", null, null, new { @class = "text-decoration-none" })
         </th>
         <th>
             @if (ViewBag.order == "asc")
             {
-                <a href="@Url.Action("Index", "Products" , new {@criteria = "ProductID" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new {criteria = "ProductID" , order = "desc", currentPage = 1 })" class="text-decoration-none">
                     <span>Product Id</span>
                     @if (ViewBag.criteria == "ProductID")
                     {
@@ -35,7 +36,7 @@
             }
             else
             {
-                <a href="@Url.Action("Index", "Products" , new { @criteria = "ProductID" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new { criteria = "ProductID" , order = "asc", currentPage = 1 })" class="text-decoration-none">
                     <span>Product Id</span>
                     @if (ViewBag.criteria == "ProductID")
                     {
@@ -47,7 +48,7 @@
         <th>
             @if (ViewBag.order == "asc")
             {
-                <a href="@Url.Action("Index", "Products" , new {@criteria = "ProductName" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products", new {criteria = "ProductName" , order = "desc", currentPage = 1 })" class="text-decoration-none">
                     <span>Product Name</span>
                     @if (ViewBag.criteria == "ProductName")
                     {
@@ -57,7 +58,7 @@
             }
             else
             {
-                <a href="@Url.Action("Index", "Products" , new { @criteria = "ProductName" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new { criteria = "ProductName" , order = "asc", currentPage = 1 })" class="text-decoration-none">
                     <span>Product Name</span>
                     @if (ViewBag.criteria == "ProductName")
                     {
@@ -69,7 +70,7 @@
         <th>
             @if (ViewBag.order == "asc")
             {
-                <a href="@Url.Action("Index", "Products" , new {@criteria = "Price" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new {criteria = "Price" , order = "desc", currentPage = 1 })" class="text-decoration-none">
                     <span>Price</span>
                     @if (ViewBag.criteria == "Price")
                     {
@@ -79,7 +80,7 @@
             }
             else
             {
-                <a href="@Url.Action("Index", "Products" , new { @criteria = "Price" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new { criteria = "Price" , order = "asc", currentPage = 1 })" class="text-decoration-none">
                     <span>Price</span>
                     @if (ViewBag.criteria == "Price")
                     {
@@ -91,7 +92,7 @@
         <th>
             @if (ViewBag.order == "asc")
             {
-                <a href="@Url.Action("Index", "Products" , new {@criteria = "DOP" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new {criteria = "DOP" , order = "desc", currentPage = 1 })" class="text-decoration-none">
                     <span>Date Of Purchase</span>
                     @if (ViewBag.criteria == "DOP")
                     {
@@ -101,7 +102,7 @@
             }
             else
             {
-                <a href="@Url.Action("Index", "Products" , new { @criteria = "DOP" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new { criteria = "DOP" , order = "asc", currentPage = 1 })" class="text-decoration-none">
                     <span>Date Of Purchase</span>
                     @if (ViewBag.criteria == "DOP")
                     {
@@ -113,7 +114,7 @@
         <th>
             @if (ViewBag.order == "asc")
             {
-                <a href="@Url.Action("Index", "Products" , new {@criteria = "AvailabilityStatus" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new {criteria = "AvailabilityStatus" , order = "desc", currentPage = 1 })" class="text-decoration-none">
                     <span>Availability Status</span>
                     @if (ViewBag.criteria == "AvailabilityStatus")
                     {
@@ -123,7 +124,7 @@
             }
             else
             {
-                <a href="@Url.Action("Index", "Products" , new { @criteria = "AvailabilityStatus" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new { criteria = "AvailabilityStatus" , order = "asc", currentPage = 1 })" class="text-decoration-none">
                     <span>Availability Status</span>
                     @if (ViewBag.criteria == "AvailabilityStatus")
                     {
@@ -135,7 +136,7 @@
         <th>
             @if (ViewBag.order == "asc")
             {
-                <a href="@Url.Action("Index", "Products" , new {@criteria = "Category" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new {criteria = "Category" , order = "desc", currentPage = 1 })" class="text-decoration-none">
                     <span>Category</span>
                     @if (ViewBag.criteria == "Category")
                     {
@@ -145,7 +146,7 @@
             }
             else
             {
-                <a href="@Url.Action("Index", "Products" , new { @criteria = "Category" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new { criteria = "Category" , order = "asc", currentPage = 1 })" class="text-decoration-none">
                     <span>Category</span>
                     @if (ViewBag.criteria == "Category")
                     {
@@ -157,7 +158,7 @@
         <th>
             @if (ViewBag.order == "asc")
             {
-                <a href="@Url.Action("Index", "Products" , new {@criteria = "Brand" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new {criteria = "Brand" , order = "desc", currentPage = 1 })" class="text-decoration-none">
                     <span>Brand</span>
                     @if (ViewBag.criteria == "Brand")
                     {
@@ -167,7 +168,7 @@
             }
             else
             {
-                <a href="@Url.Action("Index", "Products" , new { @criteria = "Brand" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new { criteria = "Brand" , order = "asc", currentPage = 1 })" class="text-decoration-none">
                     <span>Brand</span>
                     @if (ViewBag.criteria == "Brand")
                     {
@@ -179,7 +180,7 @@
         <th>
             @if (ViewBag.order == "asc")
             {
-                <a href="@Url.Action("Index", "Products" , new {@criteria = "Active" , @order = "desc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new {criteria = "Active" , order = "desc", currentPage = 1 })" class="text-decoration-none">
                     <span>Active</span>
                     @if (ViewBag.criteria == "Active")
                     {
@@ -189,7 +190,7 @@
             }
             else
             {
-                <a href="@Url.Action("Index", "Products" , new { @criteria = "Active" , @order = "asc", @currentPage = 1 })" class="text-decoration-none">
+                <a href="@Url.Action("Index", "Products" , new { criteria = "Active" , order = "asc", currentPage = 1 })" class="text-decoration-none">
                     <span>Active</span>
                     @if (ViewBag.criteria == "Active")
                     {
@@ -199,7 +200,7 @@
             }
         </th>
         <th>
-            <a class="text-decoration-none">Action</a>
+            @Html.ActionLink("Action", null, null, new { @class = "text-decoration-none" })
         </th>
     </tr>
     @foreach (var product in Model)
@@ -208,19 +209,46 @@
             <td>
                 <img src="data:image;base64,@product.Photo" alt="Not Found" />
             </td>
-            <td>@product.ProductID</td>
-            <td>@product.ProductName</td>
-            <td>@string.Format("{0:C}", product.Price)</td>
-            <td>@string.Format("{0:dd/MM/yyyy}", product.DOP)</td>
-            <td>@product.AvailabilityStatus</td>
-            <td>@product.Category.CategoryName</td>
-            <td>@product.Brand.BrandName</td>
-            <td>@product.Active</td>
             <td>
-                <a href="@Url.Action("Details", "Products", new { @productId = product.ProductID })" class="btn btn-success"><i class="fa-solid fa-eye fa-sm mr-1"></i><span>View</span></a>
-                <a href="@Url.Action("Edit", "Products", new { @productId = product.ProductID })" class="btn btn-primary"><i class="fa-solid fa-pen-to-square fa-sm mr-1"></i><span>Edit</span></a>
-                <a class="btn btn-danger" data-toggle="modal" data-target="#deleteProduct" data-productId="@product.ProductID"><i class="fa-solid fa-trash fa-sm mr-1"></i><span>Delete</span></a>
-                <form action="@Url.Action("Delete", "Products")" method="post">
+                @Html.DisplayFor(model => product.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(model => product.ProductName)
+            </td>
+            <td>
+                @{
+                    var price = string.Format("{0:C}", product.Price);
+                }
+                @Html.DisplayFor(model => price)
+
+            </td>
+            <td>
+                @{
+                    var dateOfPurchase = string.Format("{0:dd/MM/yyyy}", product.DOP);
+                }
+                @Html.DisplayFor(model => dateOfPurchase)
+            </td>
+            <td>
+                @Html.DisplayFor(model => product.AvailabilityStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(model => product.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => product.Brand.BrandName)
+            </td>
+            <td>
+                @{
+                    var active = (product.Active == true) ? "True" : "False";
+                }
+                @Html.DisplayFor(model => active)
+            </td>
+            <td>
+                <a href="@Url.Action("Details", "Products", new { productId = product.ProductID })" class="btn btn-success"><i class="fa-solid fa-eye fa-sm mr-1"></i><span>View</span></a>
+                <a href="@Url.Action("Edit", "Products", new { productId = product.ProductID })" class="btn btn-primary"><i class="fa-solid fa-pen-to-square fa-sm mr-1"></i><span>Edit</span></a>
+                <a class="btn btn-danger" data-toggle="modal" data-target="#deleteProduct" data-productId=@product.ProductID><i class="fa-solid fa-trash fa-sm mr-1"></i><span>Delete</span></a>
+                @using (Html.BeginForm("Delete", "Products", FormMethod.Post))
+                {
                     <div class="modal fade" id="deleteProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -232,7 +260,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <h6 class="text-danger">Are you sure you want to delete this product ?</h6>
-                                    <input type="hidden" name="productId" />
+                                    @Html.Hidden("productId")
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -241,7 +269,7 @@
                             </div>
                         </div>
                     </div>
-                </form>
+                }
             </td>
         </tr>
     }
@@ -265,23 +293,25 @@
             }
         }
         <li class="page-item">
-            <a class="page-link" href="@Url.Action("Index", "Products" , new { @criteria = @ViewBag.criteria , @order = @ViewBag.order , @currentPage = @previousPage})">Previous</a>
+            @Html.ActionLink("Previous", "Index", "Products", new { criteria = ViewBag.criteria, order = ViewBag.order, currentPage = previousPage }, new { @class = "page-link" })
         </li>
         @for (int i = 1; i <= ViewBag.numberOfPages; i++)
         {
             if (i == ViewBag.currentPage)
             {
                 <li class="page-item active" aria-current="page">
-                    <a class="page-link" href="@Url.Action("Index", "Products" , new { @criteria = @ViewBag.criteria , @order = @ViewBag.order , @currentPage = @i})">@i</a>
+                    @Html.ActionLink(i.ToString(), "Index", "Products", new { criteria = ViewBag.criteria, order = ViewBag.order, currentPage = i }, new { @class = "page-link" })
                 </li>
             }
             else
             {
-                <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Products" , new { @criteria = @ViewBag.criteria, @order = @ViewBag.order, @currentPage = @i})">@i</a></li>
+                <li class="page-item">
+                    @Html.ActionLink(i.ToString(), "Index", "Products", new { criteria = ViewBag.criteria, order = ViewBag.order, currentPage = i }, new { @class = "page-link" })
+                </li>
             }
         }
         <li class="page-item">
-            <a class="page-link" href="@Url.Action("Index", "Products" , new { @criteria = @ViewBag.criteria , @order = @ViewBag.order, @currentPage = @nextPage})">Next</a>
+            @Html.ActionLink("Next", "Index", "Products", new { criteria = ViewBag.criteria, order = ViewBag.order, currentPage = nextPage }, new { @class = "page-link" })
         </li>
     </ul>
 }

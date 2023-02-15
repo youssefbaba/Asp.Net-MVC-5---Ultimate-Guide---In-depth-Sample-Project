@@ -229,12 +229,12 @@ namespace EFCodeFirstApproachExample.Controllers
         [HttpPost]
         public ActionResult Delete(long productId)
         {
-            Product product = _db.Products.SingleOrDefault(p => p.ProductID == productId);
-            if (product == null)
+            Product productInDb = _db.Products.SingleOrDefault(p => p.ProductID == productId);
+            if (productInDb == null)
             {
                 return HttpNotFound();
             }
-            _db.Products.Remove(product);
+            _db.Products.Remove(productInDb);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

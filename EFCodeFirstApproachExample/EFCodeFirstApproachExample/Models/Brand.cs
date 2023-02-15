@@ -6,6 +6,7 @@ namespace EFCodeFirstApproachExample.Models
     {
         [Key]
         public long BrandID { get; set; }
+
         public string BrandName { get; set; }
     }
 }

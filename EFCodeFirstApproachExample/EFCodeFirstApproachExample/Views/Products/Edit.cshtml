@@ -4,104 +4,71 @@
 }
 
 <h2>Edit Product</h2>
-<form action="@Url.Action("Save", "Products")" method="post" enctype="multipart/form-data">
+@using (Html.BeginForm("Save", "Products", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="productName">Product Name</label>
-            <input type="text" class="form-control" name="ProductName" id="productName" placeholder="Product Name" value="@Model.Product.ProductName" />
+            @Html.LabelFor(model => model.Product.ProductName, new { @class = "col-form-label" })
+            @Html.TextBoxFor(model => model.Product.ProductName, new { @class = "form-control", @placeholder = "Product Name" })
         </div>
         <div class="form-group col-md-6">
-            <label for="price">Price</label>
-            <input type="number" class="form-control" name="Price" id="price" placeholder="Price" min="0" value="@Model.Product.Price" />
+            @Html.LabelFor(model => model.Product.Price, new { @class = "col-form-label" })
+            @Html.TextBoxFor(model => model.Product.Price, new { @type = "number", @class = "form-control", @placeholder = "Price", @min = "0" })
         </div>
         <div class="form-group col-md-6">
-            <label for="DOP">Date Of Purchase</label>
-            <input type="date" class="form-control" name="DOP" id="DOP" value="@string.Format("{0:yyyy-MM-dd}", Model.Product.DOP)" />
+            @Html.LabelFor(model => model.Product.DOP, new { @class = "col-form-label" })
+            @Html.TextBoxFor(model => model.Product.DOP, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control" })
         </div>
         <div class="form-group col-md-6">
-            <label for="availabilityStatus">Availability Status</label>
-            <select class="form-control" name="AvailabilityStatus" id="availabilityStatus">
-                @{
-                    Dictionary<string, string> status = new Dictionary<string, string>()
-                                                                                                    {
-                       {"Please Select" , ""},
-                       {"InStock" , "InStock"},
-                       {"OutOfStock" , "OutOfStock"},
+            @Html.LabelFor(model => model.Product.AvailabilityStatus, new { @class = "col-form-label" })
+            @{
+                var availabilityStatus = new[]
+            {
+                  new  { Text = "In Stock", Value = "InStock"},
+                  new  { Text = "Out Of Stock", Value = "OutOfStock"},
+            };
+            }
+            @foreach (var item in availabilityStatus)
+            {
+                <div class="form-check">
+                    @Html.RadioButtonFor(model => model.Product.AvailabilityStatus, item.Value, new { @class = "form-check-input", @id = item.Value })
+                    @Html.Label(item.Text, new { @class = "form-check-label", @for = item.Value })
+                </div>
+            }
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.Product.CategoryID, new { @class = "col-form-label" })
+            @Html.DropDownListFor(model => model.Product.CategoryID, new SelectList(Model.Categories, "CategoryID", "CategoryName"), new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.Product.BrandID, new { @class = "col-form-label" })
+            @Html.DropDownListFor(model => model.Product.BrandID, new SelectList(Model.Brands, "BrandID", "BrandName"), new { @class = "form-control" })
+        </div>
 
-                    };
-                    foreach (var item in status.Keys)
-                    {
-                        if (Model.Product.AvailabilityStatus == status[item])
-                        {
-                            <option value="@status[item]" selected>@item</option>
-                        }
-                        else
-                        {
-                            <option value="@status[item]">@item</option>
-                        }
-                    }
-                }
-            </select>
-        </div>
         <div class="form-group col-md-6">
-            <label for="categoryID">Category Id</label>
-            <select class="form-control" name="CategoryID" id="categoryID">
-                <option value="">Please Select</option>
-                @foreach (var item in Model.Categories)
-                {
-                    if (item.CategoryID == Model.Product.CategoryID)
-                    {
-                        <option value="@item.CategoryID" selected>@item.CategoryName</option>
-                    }
-                    else
-                    {
-                        <option value="@item.CategoryID">@item.CategoryName</option>
-                    }
-                }
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="brandID">Brand Id</label>
-            <select class="form-control" name="BrandID" id="brandID">
-                <option value="">Please Select</option>
-                @foreach (var item in Model.Brands)
-                {
-                    if (item.BrandID == Model.Product.BrandID)
-                    {
-                        <option value="@item.BrandID" selected>@item.BrandName</option>
-                    }
-                    else
-                    {
-                        <option value="@item.BrandID">@item.BrandName</option>
-                    }
-                }
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <input type="hidden" name="PhotoName" id="photoName" value="@Model.Product.PhotoName" />
+            @Html.HiddenFor(model => model.Product.PhotoName)
             <div class="mb-3 pl-0">
                 <img src="data:image;base64,@Model.Product.Photo" alt="Not Found" />
             </div>
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="photo" name="Photo">
                 @{
-                   var photoLabel =  (Model.Product.PhotoName == null) ? "Choose file" : @Model.Product.PhotoName;
+                    var photoLabel = (Model.Product.PhotoName == null) ? "Choose file" : @Model.Product.PhotoName;
                 }
                 <label class="custom-file-label" for="photo">@photoLabel</label>
             </div>
         </div>
     </div>
     <div class="form-check d-flex align-items-center mb-3">
-        <input class="form-check-input" type="checkbox" id="active" name="Active" value="true" @(Model.Product.Active.HasValue ? "checked=true" : "")>
-        <label class="form-check-label" for="active">Active</label>
+        @Html.CheckBox("Product.Active", new { @class = "form-check-input", @value = "true" })
+        @Html.Label("Product.Active", new { @class = "form-check-label" })
     </div>
-    <input type="hidden" name="ProductID" value="@Model.Product.ProductID" />
     <div class="form-group">
+        @Html.HiddenFor(model => model.Product.ProductID)
         <button type="button" class="btn btn-danger" id="js-cancel">Cancel</button>
         <button type="submit" class="btn btn-success">Update</button>
     </div>
-</form>
-
+}
 @section scripts{
     <script>
         $(document).ready(function () {
@@ -112,7 +79,7 @@
             $(".custom-file-input").on("change", function () {
                 var fileName = $(this).val().split("\\").pop();
                 $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-                $("#photoName").val(fileName);
+                $("#Product_PhotoName").val(fileName)
             });
         });
     </script>

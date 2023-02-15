@@ -4,60 +4,48 @@
 }
 
 <h2>Create Product</h2>
-<form action="@Url.Action("Save", "Products")" method="post" enctype="multipart/form-data">
+@using (Html.BeginForm("Save", "Products", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="productName">Product Name</label>
-            <input type="text" class="form-control" name="ProductName" id="productName" placeholder="Product Name" />
+            @Html.LabelFor(model => model.Product.ProductName, new { @class = "col-form-label" })
+            @Html.TextBoxFor(model => model.Product.ProductName, new { @class = "form-control", @placeholder = "Product Name" })
         </div>
         <div class="form-group col-md-6">
-            <label for="price">Price</label>
-            <input type="number" class="form-control" name="Price" id="price" placeholder="Price" min="0" />
+            @Html.LabelFor(model => model.Product.Price, new { @class = "col-form-label" })
+            @Html.TextBoxFor(model => model.Product.Price, new { @type = "number", @class = "form-control", @placeholder = "Price", @min = "0" })
         </div>
         <div class="form-group col-md-6">
-            <label for="DOP">Date Of Purchase</label>
-            <input type="date" class="form-control" name="DOP" id="DOP" />
+            @Html.LabelFor(model => model.Product.DOP, new { @class = "col-form-label" })
+            @Html.TextBoxFor(model => model.Product.DOP, new { @type = "date", @class = "form-control" })
         </div>
         <div class="form-group col-md-6">
-            <label for="availabilityStatus">Availability Status</label>
-            <select class="form-control" name="AvailabilityStatus" id="availabilityStatus">
-                @{
-                    Dictionary<string, string> status = new Dictionary<string, string>()
-                                            {
-                       {"Please Select" , ""},
-                       {"InStock" , "InStock"},
-                       {"OutOfStock" , "OutOfStock"},
-
-                    };
-                    foreach (var item in status.Keys)
-                    {
-                        <option value="@status[item]">@item</option>
-                    }
-                }
-            </select>
+            @Html.LabelFor(model => model.Product.AvailabilityStatus, new { @class = "col-form-label" })
+            @{
+                var availabilityStatus = new[]
+            {
+                  new  { Text = "In Stock", Value = "InStock"},
+                  new  { Text = "Out Of Stock", Value = "OutOfStock"},
+            };
+            }
+            @foreach (var item in availabilityStatus)
+            {
+                <div class="form-check">
+                    @Html.RadioButtonFor(model => model.Product.AvailabilityStatus, item.Value, new { @class = "form-check-input", @id = item.Value })
+                    @Html.Label(item.Text, new { @class = "form-check-label", @for = item.Value })
+                </div>
+            }
         </div>
         <div class="form-group col-md-6">
-            <label for="categoryID">Category Id</label>
-            <select class="form-control" name="CategoryID" id="categoryID">
-                <option value="">Please Select</option>
-                @foreach (var item in Model.Categories)
-                {
-                    <option value="@item.CategoryID">@item.CategoryName</option>
-                }
-            </select>
+            @Html.LabelFor(model => model.Product.CategoryID, new { @class = "col-form-label" })
+            @Html.DropDownListFor(model => model.Product.CategoryID, new SelectList(Model.Categories, "CategoryID", "CategoryName"), "Please Select", new { @class = "form-control" })
         </div>
         <div class="form-group col-md-6">
-            <label for="brandID">Brand Id</label>
-            <select class="form-control" name="BrandID" id="brandID">
-                <option value="">Please Select</option>
-                @foreach (var item in Model.Brands)
-                {
-                    <option value="@item.BrandID">@item.BrandName</option>
-                }
-            </select>
+            @Html.LabelFor(model => model.Product.BrandID, new { @class = "col-form-label" })
+            @Html.DropDownListFor(model => model.Product.BrandID, new SelectList(Model.Brands, "BrandID", "BrandName"), "Please Select", new { @class = "form-control" })
         </div>
         <div class="form-group col-md-6">
-            <input type="hidden" name="PhotoName" id="photoName" value=""/>
+            @Html.HiddenFor(model => model.Product.PhotoName)
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="photo" name="Photo">
                 <label class="custom-file-label" for="photo">Choose file</label>
@@ -65,16 +53,15 @@
         </div>
     </div>
     <div class="form-check d-flex align-items-center mb-3">
-        <input class="form-check-input" type="checkbox" id="active" name="Active" value="true">
-        <label class="form-check-label" for="active">Active</label>
+        @Html.CheckBox("Product.Active", new { @class = "form-check-input", @value = "true" })
+        @Html.Label("Product.Active", new { @class = "form-check-label" })
     </div>
-    <input type="hidden" name="ProductId" value="" />
     <div class="form-group">
+        @Html.HiddenFor(model => model.Product.ProductID)
         <button type="button" class="btn btn-danger" id="js-cancel">Cancel</button>
         <button type="submit" class="btn btn-success">Create</button>
     </div>
-</form>
-
+}
 @section scripts{
     <script>
         $(document).ready(function () {
@@ -85,7 +72,7 @@
             $(".custom-file-input").on("change", function () {
                 var fileName = $(this).val().split("\\").pop();
                 $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-                $("#photoName").val(fileName)
+                $("#Product_PhotoName").val(fileName)
             });
         });
     </script>

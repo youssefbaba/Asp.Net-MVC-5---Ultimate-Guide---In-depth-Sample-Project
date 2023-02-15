@@ -9,40 +9,66 @@
         <tr>
             <th>Photo</th>
             <td>
-            <img src="data:image;base64,@Model.Photo" alt="Not Found" />
+                <img src="data:image;base64,@Model.Photo" alt="Not Found" />
             </td>
         </tr>
         <tr>
             <th>Product Id</th>
-            <td>@Model.ProductID</td>
+            <td>
+                @Html.DisplayFor(model => model.ProductID)
+            </td>
         </tr>
         <tr>
-            <th>ProductName</th>
-            <td>@Model.ProductName</td>
+            <th>Product Name</th>
+            <td>
+                @Html.DisplayFor(model => model.ProductName)
+            </td>
         </tr>
         <tr>
             <th>Price</th>
-            <td>@string.Format("{0:C}", Model.Price)</td>
+            <td>
+                @{ 
+                    var price = string.Format("{0:C}", Model.Price);
+                }
+                @Html.DisplayFor(model => price))
+            </td>
         </tr>
         <tr>
-            <th>DOP</th>
-            <td>@string.Format("{0:dd/MM/yyyy}", Model.DOP)</td>
+            <th>Date Of Purchase</th>
+            <td>
+                @{ 
+                    var dateOfPurchase = string.Format("{0:dd/MM/yyyy}", Model.DOP);
+                }
+                @Html.DisplayFor(model => dateOfPurchase)
+            </td>
         </tr>
         <tr>
-            <th>AvailabilityStatus</th>
-            <td>@Model.AvailabilityStatus</td>
+            <th>Availability Status</th>
+            <td>
+                @Html.DisplayFor(model => model.AvailabilityStatus)
+            </td>
         </tr>
         <tr>
             <th>Category</th>
-            <td>@Model.Category.CategoryName</td>
+            <td>
+                @Html.DisplayFor(model => model.Category.CategoryName)
+
+            </td>
         </tr>
         <tr>
             <th>Brand</th>
-            <td>@Model.Brand.BrandName</td>
+            <td>
+                @Html.DisplayFor(model => model.Brand.BrandName)
+            </td>
         </tr>
         <tr>
             <th>Active</th>
-            <td>@Model.Active</td>
+            <td>
+                @{ 
+                    var active = (Model.Active == true) ? "True" : "False";
+                }
+                @Html.DisplayFor(model => active)
+            </td>
         </tr>
     </tbody>
 </table>

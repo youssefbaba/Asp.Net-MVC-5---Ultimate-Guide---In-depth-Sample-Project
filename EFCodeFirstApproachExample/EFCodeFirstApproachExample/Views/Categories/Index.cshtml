@@ -1,4 +1,4 @@
-﻿@model List<EFCodeFirstApproachExample.Models.Category>
+﻿@model IEnumerable<EFCodeFirstApproachExample.Models.Category>
 @{
     ViewBag.Title = "Categories";
 }
@@ -7,7 +7,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>#</th>
+            <th>Category Id</th>
             <th>Category Name</th>
         </tr>
     </thead>
@@ -15,8 +15,12 @@
         @foreach (var category in Model)
         {
             <tr>
-                <td>@category.CategoryID</td>
-                <td>@category.CategoryName</td>
+                <td>
+                    @Html.DisplayFor(model => category.CategoryID)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => category.CategoryName)
+                </td>
             </tr>
         }
     </tbody>

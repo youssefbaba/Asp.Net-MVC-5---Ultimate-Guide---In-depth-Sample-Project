@@ -1,4 +1,4 @@
-﻿@model List<EFCodeFirstApproachExample.Models.Brand>
+﻿@model IEnumerable<EFCodeFirstApproachExample.Models.Brand>
 @{
     ViewBag.Title = "Brands";
 }
@@ -6,14 +6,18 @@
 <h2>Brands</h2>
 <table class="table">
     <tr>
-        <th>#</th>
+        <th>Brand Id</th>
         <th>Brand Name</th>
     </tr>
     @foreach (var brand in Model)
     {
         <tr>
-            <td>@brand.BrandID</td>
-            <td>@brand.BrandName</td>
+            <td>
+                @Html.DisplayFor(model => brand.BrandID)
+            </td>
+            <td>
+                @Html.DisplayFor(model => brand.BrandName)
+            </td>
         </tr>
     }
 </table>
