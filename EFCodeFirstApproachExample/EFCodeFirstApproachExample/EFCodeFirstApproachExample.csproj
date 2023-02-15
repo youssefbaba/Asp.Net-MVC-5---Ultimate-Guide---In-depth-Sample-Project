@@ -116,10 +116,11 @@
     <Content Include="Content\css\all.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\style.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.6.3.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -153,6 +154,10 @@
     <Compile Include="Migrations\202302141720191_AddAnnotations.cs" />
     <Compile Include="Migrations\202302141720191_AddAnnotations.designer.cs">
       <DependentUpon>202302141720191_AddAnnotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302151530039_ValidationRules.cs" />
+    <Compile Include="Migrations\202302151530039_ValidationRules.designer.cs">
+      <DependentUpon>202302151530039_ValidationRules.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -212,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302141720191_AddAnnotations.resx">
       <DependentUpon>202302141720191_AddAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302151530039_ValidationRules.resx">
+      <DependentUpon>202302151530039_ValidationRules.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

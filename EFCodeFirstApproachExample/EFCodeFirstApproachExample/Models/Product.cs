@@ -10,9 +10,11 @@ namespace EFCodeFirstApproachExample.Models
         [Key]
         public long ProductID { get; set; }
 
+        [Required]
         [Display(Name = "Product Name")]
         public string ProductName { get; set; }
 
+        [Required]
         public decimal? Price { get; set; }
 
         [Column("DOP", TypeName = "datetime")]
@@ -22,9 +24,11 @@ namespace EFCodeFirstApproachExample.Models
         [Display(Name = "Availability Status")]
         public string AvailabilityStatus { get; set; }
 
+        [Required]
         [Display(Name = "Category")]
         public long? CategoryID { get; set; }
 
+        [Required]
         [Display(Name = "Brand")]
         public long? BrandID { get; set; }
 

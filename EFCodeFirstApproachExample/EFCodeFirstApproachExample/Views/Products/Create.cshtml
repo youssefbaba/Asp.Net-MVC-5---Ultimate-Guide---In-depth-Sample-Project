@@ -11,10 +11,12 @@
         <div class="form-group col-md-6">
             @Html.LabelFor(model => model.Product.ProductName, new { @class = "col-form-label" })
             @Html.TextBoxFor(model => model.Product.ProductName, new { @class = "form-control", @placeholder = "Product Name" })
+            @Html.ValidationMessageFor(model => model.Product.ProductName)
         </div>
         <div class="form-group col-md-6">
             @Html.LabelFor(model => model.Product.Price, new { @class = "col-form-label" })
             @Html.TextBoxFor(model => model.Product.Price, new { @type = "number", @class = "form-control", @placeholder = "Price", @min = "0" })
+            @Html.ValidationMessageFor(model => model.Product.Price)
         </div>
         <div class="form-group col-md-6">
             @Html.LabelFor(model => model.Product.DOP, new { @class = "col-form-label" })
@@ -40,10 +42,12 @@
         <div class="form-group col-md-6">
             @Html.LabelFor(model => model.Product.CategoryID, new { @class = "col-form-label" })
             @Html.DropDownListFor(model => model.Product.CategoryID, new SelectList(Model.Categories, "CategoryID", "CategoryName"), "Please Select", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Product.CategoryID)
         </div>
         <div class="form-group col-md-6">
             @Html.LabelFor(model => model.Product.BrandID, new { @class = "col-form-label" })
             @Html.DropDownListFor(model => model.Product.BrandID, new SelectList(Model.Brands, "BrandID", "BrandName"), "Please Select", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Product.BrandID)
         </div>
         <div class="form-group col-md-6">
             @Html.HiddenFor(model => model.Product.PhotoName)
