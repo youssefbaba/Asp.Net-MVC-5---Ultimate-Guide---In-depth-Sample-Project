@@ -10,25 +10,27 @@ namespace EFCodeFirstApproachExample.Models
         [Key]
         public long ProductID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Product Name can't be blank")]
+        [MaxLength(50, ErrorMessage = "Product Name must be less than 50 characters")]
         [Display(Name = "Product Name")]
         public string ProductName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Price can't be blank")]
         public decimal? Price { get; set; }
 
         [Column("DOP", TypeName = "datetime")]
         [Display(Name = "Date Of Purchase")]
         public DateTime? DOP { get; set; }
 
+        [Required(ErrorMessage = "Price can't be blank")]
         [Display(Name = "Availability Status")]
         public string AvailabilityStatus { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Category can't be blank")]
         [Display(Name = "Category")]
         public long? CategoryID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Brand can't be blank")]
         [Display(Name = "Brand")]
         public long? BrandID { get; set; }
 
@@ -43,6 +45,5 @@ namespace EFCodeFirstApproachExample.Models
         public virtual Brand Brand { get; set; }
 
         public virtual Category Category { get; set; }
-
     }
 }

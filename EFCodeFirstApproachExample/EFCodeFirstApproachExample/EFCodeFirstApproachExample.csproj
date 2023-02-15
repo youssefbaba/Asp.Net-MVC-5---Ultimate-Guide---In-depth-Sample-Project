@@ -159,6 +159,14 @@
     <Compile Include="Migrations\202302151530039_ValidationRules.designer.cs">
       <DependentUpon>202302151530039_ValidationRules.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302151614344_RequiredAvailabilityStatus.cs" />
+    <Compile Include="Migrations\202302151614344_RequiredAvailabilityStatus.designer.cs">
+      <DependentUpon>202302151614344_RequiredAvailabilityStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302151623233_ProductNameMaxLengthValidation.cs" />
+    <Compile Include="Migrations\202302151623233_ProductNameMaxLengthValidation.designer.cs">
+      <DependentUpon>202302151623233_ProductNameMaxLengthValidation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\CategoriesBrandsViewModel.cs" />
@@ -220,6 +228,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302151530039_ValidationRules.resx">
       <DependentUpon>202302151530039_ValidationRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302151614344_RequiredAvailabilityStatus.resx">
+      <DependentUpon>202302151614344_RequiredAvailabilityStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302151623233_ProductNameMaxLengthValidation.resx">
+      <DependentUpon>202302151623233_ProductNameMaxLengthValidation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
