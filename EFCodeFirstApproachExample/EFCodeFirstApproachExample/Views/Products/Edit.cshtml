@@ -1,4 +1,5 @@
 ﻿@model EFCodeFirstApproachExample.Models.CategoriesBrandsViewModel
+@using EFCodeFirstApproachExample.HtmlHelpers
 @{
     ViewBag.Title = "Edit";
 }
@@ -51,11 +52,11 @@
                 <img src="data:image;base64,@Model.Product.Photo" alt="Not Found" />
             </div>
             <div class="custom-file">
-                <input type="file" class="custom-file-input" id="photo" name="Photo">
+                @Html.File("custom-file-input", "photo", "Photo")
                 @{
                     var photoLabel = (Model.Product.PhotoName == null) ? "Choose file" : @Model.Product.PhotoName;
                 }
-                <label class="custom-file-label" for="photo">@photoLabel</label>
+                @Html.Label("", @photoLabel, new { @class = "custom-file-label", @for = "photo" })
             </div>
         </div>
     </div>
