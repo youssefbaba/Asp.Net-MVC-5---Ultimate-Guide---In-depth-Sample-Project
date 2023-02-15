@@ -167,6 +167,10 @@
     <Compile Include="Migrations\202302151623233_ProductNameMaxLengthValidation.designer.cs">
       <DependentUpon>202302151623233_ProductNameMaxLengthValidation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302151646181_AddSomeOtherValidationRules.cs" />
+    <Compile Include="Migrations\202302151646181_AddSomeOtherValidationRules.designer.cs">
+      <DependentUpon>202302151646181_AddSomeOtherValidationRules.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\CategoriesBrandsViewModel.cs" />
@@ -234,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302151623233_ProductNameMaxLengthValidation.resx">
       <DependentUpon>202302151623233_ProductNameMaxLengthValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302151646181_AddSomeOtherValidationRules.resx">
+      <DependentUpon>202302151646181_AddSomeOtherValidationRules.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

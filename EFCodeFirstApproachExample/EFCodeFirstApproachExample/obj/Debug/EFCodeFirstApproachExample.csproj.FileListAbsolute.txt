@@ -88,3 +88,4 @@ C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirs
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.Migrations.ValidationRules.resources
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.Migrations.RequiredAvailabilityStatus.resources
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.Migrations.ProductNameMaxLengthValidation.resources
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.Migrations.AddSomeOtherValidationRules.resources

@@ -11,11 +11,14 @@ namespace EFCodeFirstApproachExample.Models
         public long ProductID { get; set; }
 
         [Required(ErrorMessage = "Product Name can't be blank")]
-        [MaxLength(50, ErrorMessage = "Product Name must be less than 50 characters")]
+        [RegularExpression(@"^[0-9A-Za-z ]*$", ErrorMessage = "Product Name should contain only alphabetics and numbers")]
+        [MaxLength(20, ErrorMessage = "Product Name can be maximum 20 characters")]
+        [MinLength(2, ErrorMessage = "Product Name should contain at least 2 characters")]
         [Display(Name = "Product Name")]
         public string ProductName { get; set; }
 
         [Required(ErrorMessage = "Price can't be blank")]
+        [Range(0, 100000, ErrorMessage = "Price should be between 0 and 100000")]
         public decimal? Price { get; set; }
 
         [Column("DOP", TypeName = "datetime")]
