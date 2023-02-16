@@ -1,4 +1,5 @@
 ﻿using EFCodeFirstApproachExample.Identity;
+using EFCodeFirstApproachExample.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
@@ -35,10 +36,10 @@ namespace EFCodeFirstApproachExample
             var userManager = new ApplicationUserManager(userStore);
 
             // Create Admin Role
-            if (!roleManager.RoleExists("Admin"))
+            if (!roleManager.RoleExists(UserRoles.Admin))
             {
                 var role = new IdentityRole();
-                role.Name = "Admin";
+                role.Name = UserRoles.Admin;
                 roleManager.Create(role);
             }
 
@@ -52,15 +53,15 @@ namespace EFCodeFirstApproachExample
                 var checkUser = userManager.Create(user);
                 if (checkUser.Succeeded)
                 {
-                    userManager.AddToRole(user.Id, "Admin");
+                    userManager.AddToRole(user.Id, UserRoles.Admin);
                 }
             }
 
             // Create Manager Role
-            if (!roleManager.RoleExists("Manager"))
+            if (!roleManager.RoleExists(UserRoles.Manager))
             {
                 var role = new IdentityRole();
-                role.Name = "Manager";
+                role.Name = UserRoles.Manager;
                 roleManager.Create(role);
             }
 
@@ -74,15 +75,15 @@ namespace EFCodeFirstApproachExample
                 var checkUser = userManager.Create(user);
                 if (checkUser.Succeeded)
                 {
-                    userManager.AddToRole(user.Id, "Manager");
+                    userManager.AddToRole(user.Id, UserRoles.Manager);
                 }
             }
 
             // Create Customer Role
-            if (!roleManager.RoleExists("Customer"))
+            if (!roleManager.RoleExists(UserRoles.Customer))
             {
                 var role = new IdentityRole();
-                role.Name = "Customer";
+                role.Name = UserRoles.Customer;
                 roleManager.Create(role);
             }
         }

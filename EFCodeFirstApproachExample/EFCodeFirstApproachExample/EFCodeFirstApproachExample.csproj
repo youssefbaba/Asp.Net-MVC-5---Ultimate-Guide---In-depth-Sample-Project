@@ -224,7 +224,9 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Validations\PriceDivisibleBy10Attribute.cs" />
     <Compile Include="ViewModels\CategoriesBrandsViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\UserRoles.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

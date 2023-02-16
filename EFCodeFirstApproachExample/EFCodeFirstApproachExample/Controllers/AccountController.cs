@@ -73,7 +73,39 @@ namespace EFCodeFirstApproachExample.Controllers
         // GET: /Account/Login
         public ActionResult Login()
         {
-            return View();
+            var viewModel = new LoginViewModel();
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        // POST: /Account/Login
+        public ActionResult Login(LoginViewModel model)
+        {
+            var userStore = new ApplicationUserStore(_db);
+            var userManager = new ApplicationUserManager(userStore);
+            var user = userManager.Find(model.UserName, model.Password);
+            if (user == null)
+            {
+                ModelState.AddModelError("My Error", "Invalid UserName or Password");
+                return View(model);
+            }
+            else
+            {
+                // Login
+                var authenticationManager = HttpContext.GetOwinContext().Authentication;
+                var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [HttpGet]
+        // GET: /Account/Logout
+        public ActionResult Logout()
+        {
+            var authenticationManager = HttpContext.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
