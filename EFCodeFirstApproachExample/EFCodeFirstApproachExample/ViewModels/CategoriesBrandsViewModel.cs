@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using EFCodeFirstApproachExample.Models;
+using System.Collections.Generic;
 
-namespace EFCodeFirstApproachExample.Models
+namespace EFCodeFirstApproachExample.ViewModels
 {
     public class CategoriesBrandsViewModel
     {

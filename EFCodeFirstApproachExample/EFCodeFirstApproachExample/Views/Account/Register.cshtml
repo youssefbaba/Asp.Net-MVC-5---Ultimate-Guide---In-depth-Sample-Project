@@ -1,0 +1,56 @@
+﻿@model EFCodeFirstApproachExample.ViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.UserName, new { @class = "col-form-label" })
+            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placeholder = "User Name" })
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.Password, new { @class = "col-form-label" })
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Password" })
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.ConfirmPassword, new { @class = "col-form-label" })
+            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password" })
+            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.Email, new { @class = "col-form-label" })
+            @Html.TextBoxFor(model => model.Email, new { @type = "email", @class = "form-control", @placeholder = "Email" })
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.Mobile, new { @class = "col-form-label" })
+            @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control", @placeholder = "Mobile" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.BirthDay, new { @class = "col-form-label" })
+            @Html.TextBoxFor(model => model.BirthDay, new { @type = "date", @class = "form-control" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.Country, new { @class = "col-form-label" })
+            @Html.TextBoxFor(model => model.Country, new { @class = "form-control", @placeholder = "Country" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.City, new { @class = "col-form-label" })
+            @Html.TextBoxFor(model => model.City, new { @class = "form-control", @placeholder = "City" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.LabelFor(model => model.Address, new { @class = "col-form-label" })
+            @Html.TextAreaFor(model => model.Address, new { @class = "form-control register-address", @placeholder = "Address" })
+        </div>
+    </div>
+    @Html.ValidationSummary()
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+}
+

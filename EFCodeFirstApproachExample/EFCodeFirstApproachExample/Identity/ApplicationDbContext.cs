@@ -4,7 +4,7 @@ namespace EFCodeFirstApproachExample.Identity
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext() : base("DefaultConnectionString")
+        public ApplicationDbContext() : base("DefaultConnection")
         {
         }
     }

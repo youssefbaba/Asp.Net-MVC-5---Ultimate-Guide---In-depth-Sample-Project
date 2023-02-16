@@ -10,3 +10,6 @@
 .input-validation-error{
     border :2px solid red !important;
 }
+.register-address{
+    resize : none;
+}

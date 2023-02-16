@@ -1,4 +1,5 @@
 ﻿using EFCodeFirstApproachExample.Models;
+using EFCodeFirstApproachExample.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
