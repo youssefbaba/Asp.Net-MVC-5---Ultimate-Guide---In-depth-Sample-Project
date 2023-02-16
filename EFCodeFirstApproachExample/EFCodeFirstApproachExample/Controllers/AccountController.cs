@@ -105,7 +105,19 @@ namespace EFCodeFirstApproachExample.Controllers
         {
             var authenticationManager = HttpContext.GetOwinContext().Authentication;
             authenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login");
+        }
+
+        [HttpGet]
+        // GET: /Account/Profile
+        public new ActionResult Profile()
+        {
+            var userStore = new ApplicationUserStore(_db);
+            var userManager = new ApplicationUserManager(userStore);
+            var userId = User.Identity.GetUserId();
+            var currentUser = userManager.FindById(userId);
+            ViewBag.PreviousUrl = Request.UrlReferrer.ToString();
+            return View(currentUser);
         }
     }
 }
