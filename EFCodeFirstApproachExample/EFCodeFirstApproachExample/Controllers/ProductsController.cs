@@ -1,4 +1,5 @@
-﻿using EFCodeFirstApproachExample.Models;
+﻿using EFCodeFirstApproachExample.Filters;
+using EFCodeFirstApproachExample.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

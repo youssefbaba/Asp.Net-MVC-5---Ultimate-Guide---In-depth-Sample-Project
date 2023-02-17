@@ -1,3 +1,4 @@
+using EFCodeFirstApproachExample.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace EFCodeFirstApproachExample
     {
         protected void Application_Start()
         {
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }

@@ -17,6 +17,7 @@ namespace EFCodeFirstApproachExample.Controllers
             _db = new ApplicationDbContext();
         }
 
+        [OverrideAuthentication]
         [HttpGet]
         // GET: /Account/Register
         public ActionResult Register()
@@ -25,6 +26,7 @@ namespace EFCodeFirstApproachExample.Controllers
             return View(viewModel);
         }
 
+        [OverrideAuthentication]
         [HttpPost]
         // POST: /Account/Register
         public ActionResult Register(RegisterViewModel model)
@@ -66,6 +68,7 @@ namespace EFCodeFirstApproachExample.Controllers
             }
         }
 
+        [OverrideAuthentication]
         [HttpGet]
         // GET: /Account/Login
         public ActionResult Login()
@@ -74,6 +77,7 @@ namespace EFCodeFirstApproachExample.Controllers
             return View(viewModel);
         }
 
+        [OverrideAuthentication]
         [HttpPost]
         // POST: /Account/Login
         public ActionResult Login(LoginViewModel model)
