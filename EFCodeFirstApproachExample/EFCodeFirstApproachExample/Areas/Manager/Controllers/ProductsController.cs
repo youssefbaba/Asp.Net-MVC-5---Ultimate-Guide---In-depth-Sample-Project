@@ -6,9 +6,11 @@ using System.Linq;
 using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
+using EFCodeFirstApproachExample.Filters;
 
 namespace EFCodeFirstApproachExample.Areas.Manager.Controllers
 {
+    [ManagerAuthorizationFilter]
     [RouteArea("Manager")]
     [RoutePrefix("Products")]
     public class ProductsController : Controller

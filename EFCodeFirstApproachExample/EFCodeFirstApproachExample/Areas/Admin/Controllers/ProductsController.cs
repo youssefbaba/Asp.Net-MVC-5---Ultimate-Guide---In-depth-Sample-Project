@@ -1,4 +1,5 @@
-﻿using EFCodeFirstApproachExample.Models;
+﻿using EFCodeFirstApproachExample.Filters;
+using EFCodeFirstApproachExample.Models;
 using EFCodeFirstApproachExample.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
 {
+    [AdminAuthorizationFilter]
     [RouteArea("Admin")]
     [RoutePrefix("Products")]
     public class ProductsController : Controller

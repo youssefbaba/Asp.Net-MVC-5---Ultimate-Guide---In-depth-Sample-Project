@@ -1,4 +1,5 @@
-﻿using EFCodeFirstApproachExample.Identity;
+﻿using EFCodeFirstApproachExample.Filters;
+using EFCodeFirstApproachExample.Identity;
 using EFCodeFirstApproachExample.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -116,6 +117,7 @@ namespace EFCodeFirstApproachExample.Controllers
             return RedirectToAction("Login");
         }
 
+        [CustomerAuthorizationFilter]
         [HttpGet]
         // GET: /Account/Profile
         public new ActionResult Profile()

@@ -1,4 +1,5 @@
-﻿using EFCodeFirstApproachExample.Identity;
+﻿using EFCodeFirstApproachExample.Filters;
+using EFCodeFirstApproachExample.Identity;
 using EFCodeFirstApproachExample.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -11,6 +12,7 @@ using System.Web.Mvc;
 
 namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
 {
+    [AdminAuthorizationFilter]
     public class AccountController : Controller
     {
         private ApplicationDbContext _db;

@@ -1,4 +1,5 @@
-﻿using EFCodeFirstApproachExample.Identity;
+﻿using EFCodeFirstApproachExample.Filters;
+using EFCodeFirstApproachExample.Identity;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace EFCodeFirstApproachExample.Areas.Manager.Controllers
 {
+    [ManagerAuthorizationFilter]
     public class AccountController : Controller
     {
         private ApplicationDbContext _db;
