@@ -18,6 +18,7 @@ namespace EFCodeFirstApproachExample.Controllers
             _db = new CompanyDbContext();
         }
 
+        [ExceptionFilter]
         [HttpGet]
         // GET: /Products/Index
         public ActionResult Index(int currentPage = 1)

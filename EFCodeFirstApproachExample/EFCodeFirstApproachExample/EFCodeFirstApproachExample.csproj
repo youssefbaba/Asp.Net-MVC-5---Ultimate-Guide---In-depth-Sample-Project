@@ -147,6 +147,7 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Error.html" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.6.3.min.js" />
@@ -177,6 +178,7 @@
     <Compile Include="Filters\AdminAuthorizationFilter.cs" />
     <Compile Include="Filters\AuthenticationFilter.cs" />
     <Compile Include="Filters\CustomerAuthorizationFilter.cs" />
+    <Compile Include="Filters\ExceptionFilter.cs" />
     <Compile Include="Filters\ManagerAuthorizationFilter.cs" />
     <Compile Include="Filters\ResultFilter.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />

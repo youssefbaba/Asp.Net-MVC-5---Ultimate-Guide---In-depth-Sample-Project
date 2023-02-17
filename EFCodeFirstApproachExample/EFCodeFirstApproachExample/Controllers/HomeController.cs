@@ -3,7 +3,6 @@ using System.Web.Mvc;
 
 namespace EFCodeFirstApproachExample.Controllers
 {
-    [CustomerAuthorizationFilter]
     public class HomeController : Controller
     {
         [OverrideAuthentication]
