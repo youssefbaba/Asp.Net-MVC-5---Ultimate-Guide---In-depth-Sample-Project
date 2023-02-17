@@ -88,9 +88,13 @@ namespace EFCodeFirstApproachExample.Controllers
             {
                 // Login
                 HelperForLogin(user);
-                if (GetUserManager().IsInRole(user.Id, "Admin"))
+                if (GetUserManager().IsInRole(user.Id, UserRoles.Admin))
                 {
                     return RedirectToAction("Index", "Home", new { area = "Admin" });
+                }
+                else if (GetUserManager().IsInRole(user.Id, UserRoles.Manager))
+                {
+                    return RedirectToAction("Index", "Home", new { area = "Manager" });
                 }
                 else
                 {

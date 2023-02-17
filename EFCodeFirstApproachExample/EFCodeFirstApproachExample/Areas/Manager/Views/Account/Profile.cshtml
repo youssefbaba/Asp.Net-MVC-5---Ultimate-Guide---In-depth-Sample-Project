@@ -1,0 +1,62 @@
+﻿@model EFCodeFirstApproachExample.Identity.ApplicationUser
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>Manager Profile</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>User Name</th>
+            <td>
+                @Html.DisplayFor(model => model.UserName)
+            </td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>
+                @Html.DisplayFor(model => model.Email)
+            </td>
+        </tr>
+        <tr>
+            <th>Phone Number</th>
+            <td>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </td>
+        </tr>
+        <tr>
+            <th>Birth Day</th>
+            <td>
+                @{
+                    var birthDay = string.Format("{0:dd/MM/yyyy}", Model.BirthDay);
+                }
+                @Html.DisplayFor(model => birthDay)
+            </td>
+        </tr>
+        <tr>
+            <th>Country</th>
+            <td>
+                @Html.DisplayFor(model => model.Country)
+            </td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td>
+                @Html.DisplayFor(model => model.City)
+
+            </td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>
+                @Html.DisplayFor(model => model.Address)
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a href="@ViewBag.PreviousUrl" class="text-decoration-none"><i class="fa-solid fa-arrow-left-long fa-sm mr-1"></i><span>Back</span> </a>
+
+
+
+
+

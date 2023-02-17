@@ -1,0 +1,76 @@
+﻿@model EFCodeFirstApproachExample.Models.Product
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Product Details</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Photo</th>
+            <td>
+                <img src="data:image;base64,@Model.Photo" alt="Not Found" />
+            </td>
+        </tr>
+        <tr>
+            <th>Product Id</th>
+            <td>
+                @Html.DisplayFor(model => model.ProductID)
+            </td>
+        </tr>
+        <tr>
+            <th>Product Name</th>
+            <td>
+                @Html.DisplayFor(model => model.ProductName)
+            </td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>
+                @{
+                    var price = string.Format("{0:C}", Model.Price);
+                }
+                @Html.DisplayFor(model => price))
+            </td>
+        </tr>
+        <tr>
+            <th>Date Of Purchase</th>
+            <td>
+                @{
+                    var dateOfPurchase = string.Format("{0:dd/MM/yyyy}", Model.DOP);
+                }
+                @Html.DisplayFor(model => dateOfPurchase)
+            </td>
+        </tr>
+        <tr>
+            <th>Availability Status</th>
+            <td>
+                @Html.DisplayFor(model => model.AvailabilityStatus)
+            </td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td>
+                @Html.DisplayFor(model => model.Category.CategoryName)
+
+            </td>
+        </tr>
+        <tr>
+            <th>Brand</th>
+            <td>
+                @Html.DisplayFor(model => model.Brand.BrandName)
+            </td>
+        </tr>
+        <tr>
+            <th>Active</th>
+            <td>
+                @{
+                    var active = (Model.Active == true) ? "True" : "False";
+                }
+                @Html.DisplayFor(model => active)
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a href="@Url.Action("Index", "Products")" class="text-decoration-none"><i class="fa-solid fa-arrow-left-long fa-sm mr-1"></i><span>Back To Products</span> </a>
+
