@@ -5,7 +5,7 @@
 }
 
 <h2>Create Product</h2>
-@using (Html.BeginForm("Save", "Products", new { Aria = "Admin" }, FormMethod.Post, new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Save", "Products", null, FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     <div class="form-row">
         <div class="form-group col-md-6">

@@ -1,0 +1,89 @@
+﻿@model EFCodeFirstApproachExample.Areas.Admin.ViewModels.UserViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Users</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Roles</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Birth Day</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.users.Count; i++)
+        {
+            <tr>
+                <td>
+                    @{
+
+                        foreach (var item in Model.roles[i])
+                        {
+                            <span class="mr-1">@item</span>
+                        }
+                    }
+                </td>
+                <td>@Model.users[i].UserName</td>
+                <td>@Model.users[i].Email</td>
+                <td>@Model.users[i].PhoneNumber</td>
+                <td>
+                    @{
+                        var birthDay = string.Format("{0:dd/MM/yyyy}", Model.users[i].BirthDay);
+                    }
+                    @birthDay
+                </td>
+                <td>@Model.users[i].Country</td>
+                <td>@Model.users[i].City</td>
+                <td>@Model.users[i].Address</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (Model.users.Count > 0)
+{
+    <ul class="pagination justify-content-center">
+        @{
+
+            int previousPage = ViewBag.currentPage - 1;
+            if (previousPage < 1)
+            {
+                previousPage = 1;
+            }
+
+            int nextPage = ViewBag.currentPage + 1;
+            if (nextPage > ViewBag.numberOfPages)
+            {
+                nextPage = ViewBag.numberOfPages;
+            }
+        }
+        <li class="page-item">
+            @Html.ActionLink("Previous", "Index", "Users", new { currentPage = previousPage}, new { @class = "page-link" })
+        </li>
+        @for (int i = 1; i <= ViewBag.numberOfPages; i++)
+        {
+            if (i == ViewBag.currentPage)
+            {
+                <li class="page-item active" aria-current="page">
+                    @Html.ActionLink(i.ToString(), "Index", "Users", new { currentPage = i}, new { @class = "page-link" })
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    @Html.ActionLink(i.ToString(), "Index", "Users", new { currentPage = i}, new { @class = "page-link" })
+                </li>
+            }
+        }
+        <li class="page-item">
+            @Html.ActionLink("Next", "Index", "Users", new { currentPage = nextPage}, new { @class = "page-link" })
+        </li>
+    </ul>
+}
+
