@@ -4,276 +4,25 @@
 }
 
 <h2>Products</h2>
-<div class="row">
-    <div class="col-8 mb-3">
-        <a href="@Url.Action("Create", "Products")" class="btn btn-primary"><i class="fa-solid fa-plus fa-sm mr-1"></i><span>New Product</span></a>
-    </div>
-    @using (Html.BeginForm("Index", "Products", FormMethod.Get, new { @class = "col-4 mb-3" }))
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 ">
+    @foreach (var product in Model)
     {
-        <div class="input-group">
-            @Html.TextBox("keyWord", ViewBag.keyWord as string, null, new { @type = "search", @class = "form-control", @placeholder = "Search" })
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="col mb-3">
+            <div class="card h-100">
+                <div class="card-header width-same-height">
+                    <img src="data:image;base64,@product.Photo" alt="Not Found" class="card-img-top img-card-product" />
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Product : @product.ProductName</p>
+                    <p class="card-text">Price : @string.Format("{0:C}", product.Price)</p>
+                    <div class="d-flex justify-content-center">
+                        @Html.ActionLink("More Details", "Details", "Products", new { productId = product.ProductID}, new { @class = "btn btn-primary" })
+                    </div>
+                </div>
             </div>
         </div>
     }
 </div>
-<table class="table">
-    <tr class="bg-light">
-        <th>
-            @Html.ActionLink("Photo", null, null, new { @class = "text-decoration-none" })
-        </th>
-        <th>
-            @if (ViewBag.order == "asc")
-            {
-                <a href="@Url.Action("Index", "Products" , new {criteria = "ProductID" , order = "desc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Product Id</span>
-                    @if (ViewBag.criteria == "ProductID")
-                    {
-                        <i class="fa-solid fa-caret-down"></i>
-                    }
-                </a>
-            }
-            else
-            {
-                <a href="@Url.Action("Index", "Products" , new { criteria = "ProductID" , order = "asc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Product Id</span>
-                    @if (ViewBag.criteria == "ProductID")
-                    {
-                        <i class="fa-solid fa-caret-up"></i>
-                    }
-                </a>
-            }
-        </th>
-        <th>
-            @if (ViewBag.order == "asc")
-            {
-                <a href="@Url.Action("Index", "Products", new {criteria = "ProductName" , order = "desc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Product Name</span>
-                    @if (ViewBag.criteria == "ProductName")
-                    {
-                        <i class="fa-solid fa-caret-down"></i>
-                    }
-                </a>
-            }
-            else
-            {
-                <a href="@Url.Action("Index", "Products" , new { criteria = "ProductName" , order = "asc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Product Name</span>
-                    @if (ViewBag.criteria == "ProductName")
-                    {
-                        <i class="fa-solid fa-caret-up"></i>
-                    }
-                </a>
-            }
-        </th>
-        <th>
-            @if (ViewBag.order == "asc")
-            {
-                <a href="@Url.Action("Index", "Products" , new {criteria = "Price" , order = "desc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Price</span>
-                    @if (ViewBag.criteria == "Price")
-                    {
-                        <i class="fa-solid fa-caret-down"></i>
-                    }
-                </a>
-            }
-            else
-            {
-                <a href="@Url.Action("Index", "Products" , new { criteria = "Price" , order = "asc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Price</span>
-                    @if (ViewBag.criteria == "Price")
-                    {
-                        <i class="fa-solid fa-caret-up"></i>
-                    }
-                </a>
-            }
-        </th>
-        <th>
-            @if (ViewBag.order == "asc")
-            {
-                <a href="@Url.Action("Index", "Products" , new {criteria = "DOP" , order = "desc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Date Of Purchase</span>
-                    @if (ViewBag.criteria == "DOP")
-                    {
-                        <i class="fa-solid fa-caret-down"></i>
-                    }
-                </a>
-            }
-            else
-            {
-                <a href="@Url.Action("Index", "Products" , new { criteria = "DOP" , order = "asc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Date Of Purchase</span>
-                    @if (ViewBag.criteria == "DOP")
-                    {
-                        <i class="fa-solid fa-caret-up"></i>
-                    }
-                </a>
-            }
-        </th>
-        <th>
-            @if (ViewBag.order == "asc")
-            {
-                <a href="@Url.Action("Index", "Products" , new {criteria = "AvailabilityStatus" , order = "desc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Availability Status</span>
-                    @if (ViewBag.criteria == "AvailabilityStatus")
-                    {
-                        <i class="fa-solid fa-caret-down"></i>
-                    }
-                </a>
-            }
-            else
-            {
-                <a href="@Url.Action("Index", "Products" , new { criteria = "AvailabilityStatus" , order = "asc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Availability Status</span>
-                    @if (ViewBag.criteria == "AvailabilityStatus")
-                    {
-                        <i class="fa-solid fa-caret-up"></i>
-                    }
-                </a>
-            }
-        </th>
-        <th>
-            @if (ViewBag.order == "asc")
-            {
-                <a href="@Url.Action("Index", "Products" , new {criteria = "Category" , order = "desc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Category</span>
-                    @if (ViewBag.criteria == "Category")
-                    {
-                        <i class="fa-solid fa-caret-down"></i>
-                    }
-                </a>
-            }
-            else
-            {
-                <a href="@Url.Action("Index", "Products" , new { criteria = "Category" , order = "asc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Category</span>
-                    @if (ViewBag.criteria == "Category")
-                    {
-                        <i class="fa-solid fa-caret-up"></i>
-                    }
-                </a>
-            }
-        </th>
-        <th>
-            @if (ViewBag.order == "asc")
-            {
-                <a href="@Url.Action("Index", "Products" , new {criteria = "Brand" , order = "desc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Brand</span>
-                    @if (ViewBag.criteria == "Brand")
-                    {
-                        <i class="fa-solid fa-caret-down"></i>
-                    }
-                </a>
-            }
-            else
-            {
-                <a href="@Url.Action("Index", "Products" , new { criteria = "Brand" , order = "asc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Brand</span>
-                    @if (ViewBag.criteria == "Brand")
-                    {
-                        <i class="fa-solid fa-caret-up"></i>
-                    }
-                </a>
-            }
-        </th>
-        <th>
-            @if (ViewBag.order == "asc")
-            {
-                <a href="@Url.Action("Index", "Products" , new {criteria = "Active" , order = "desc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Active</span>
-                    @if (ViewBag.criteria == "Active")
-                    {
-                        <i class="fa-solid fa-caret-down"></i>
-                    }
-                </a>
-            }
-            else
-            {
-                <a href="@Url.Action("Index", "Products" , new { criteria = "Active" , order = "asc", currentPage = 1 })" class="text-decoration-none">
-                    <span>Active</span>
-                    @if (ViewBag.criteria == "Active")
-                    {
-                        <i class="fa-solid fa-caret-up"></i>
-                    }
-                </a>
-            }
-        </th>
-        <th>
-            @Html.ActionLink("Action", null, null, new { @class = "text-decoration-none" })
-        </th>
-    </tr>
-    @foreach (var product in Model)
-    {
-        <tr>
-            <td>
-                <img src="data:image;base64,@product.Photo" alt="Not Found" />
-            </td>
-            <td>
-                @Html.DisplayFor(model => product.ProductID)
-            </td>
-            <td>
-                @Html.DisplayFor(model => product.ProductName)
-            </td>
-            <td>
-                @{
-                    var price = string.Format("{0:C}", product.Price);
-                }
-                @Html.DisplayFor(model => price)
-
-            </td>
-            <td>
-                @{
-                    var dateOfPurchase = string.Format("{0:dd/MM/yyyy}", product.DOP);
-                }
-                @Html.DisplayFor(model => dateOfPurchase)
-            </td>
-            <td>
-                @Html.DisplayFor(model => product.AvailabilityStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(model => product.Category.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(model => product.Brand.BrandName)
-            </td>
-            <td>
-                @{
-                    var active = (product.Active == true) ? "True" : "False";
-                }
-                @Html.DisplayFor(model => active)
-            </td>
-            <td>
-                <a href="@Url.Action("Details", "Products", new { productId = product.ProductID })" class="btn btn-success"><i class="fa-solid fa-eye fa-sm mr-1"></i><span>View</span></a>
-                <a href="@Url.Action("Edit", "Products", new { productId = product.ProductID })" class="btn btn-primary"><i class="fa-solid fa-pen-to-square fa-sm mr-1"></i><span>Edit</span></a>
-                <a class="btn btn-danger" data-toggle="modal" data-target="#deleteProduct" data-productId=@product.ProductID><i class="fa-solid fa-trash fa-sm mr-1"></i><span>Delete</span></a>
-                @using (Html.BeginForm("Delete", "Products", FormMethod.Post))
-                {
-                    <div class="modal fade" id="deleteProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title text-danger" id="exampleModalLabel">Delete Product</h5>
-                                    <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <h6 class="text-danger">Are you sure you want to delete this product ?</h6>
-                                    @Html.Hidden("productId")
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </td>
-        </tr>
-    }
-</table>
 
 @if (Model.Count > 0)
 {
@@ -293,37 +42,25 @@
             }
         }
         <li class="page-item">
-            @Html.ActionLink("Previous", "Index", "Products", new { criteria = ViewBag.criteria, order = ViewBag.order, currentPage = previousPage }, new { @class = "page-link" })
+            @Html.ActionLink("Previous", "Index", "Products", new { currentPage = previousPage }, new { @class = "page-link" })
         </li>
         @for (int i = 1; i <= ViewBag.numberOfPages; i++)
         {
             if (i == ViewBag.currentPage)
             {
                 <li class="page-item active" aria-current="page">
-                    @Html.ActionLink(i.ToString(), "Index", "Products", new { criteria = ViewBag.criteria, order = ViewBag.order, currentPage = i }, new { @class = "page-link" })
+                    @Html.ActionLink(i.ToString(), "Index", "Products", new { currentPage = i }, new { @class = "page-link" })
                 </li>
             }
             else
             {
                 <li class="page-item">
-                    @Html.ActionLink(i.ToString(), "Index", "Products", new { criteria = ViewBag.criteria, order = ViewBag.order, currentPage = i }, new { @class = "page-link" })
+                    @Html.ActionLink(i.ToString(), "Index", "Products", new { currentPage = i }, new { @class = "page-link" })
                 </li>
             }
         }
         <li class="page-item">
-            @Html.ActionLink("Next", "Index", "Products", new { criteria = ViewBag.criteria, order = ViewBag.order, currentPage = nextPage }, new { @class = "page-link" })
+            @Html.ActionLink("Next", "Index", "Products", new { currentPage = nextPage }, new { @class = "page-link" })
         </li>
     </ul>
-}
-@section scripts{
-    <script>
-        $(document).ready(function () {
-            $('#deleteProduct').on('show.bs.modal', function (event) {
-                var link = $(event.relatedTarget); // link that triggered the modal
-                var id = link.data("productid");
-                var modal = $(this);
-                modal.find('.modal-content input').val(id);
-            });
-        });
-    </script>
 }

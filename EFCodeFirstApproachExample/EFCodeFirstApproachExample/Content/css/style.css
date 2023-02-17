@@ -3,13 +3,30 @@
     height: 75px;
     border: 1px solid #007bff;
 }
+
 .field-validation-error,
 .validation-summary-errors {
     color: red;
 }
-.input-validation-error{
-    border :2px solid red !important;
+
+.input-validation-error {
+    border: 2px solid red !important;
 }
-.register-address{
-    resize : none;
+
+.register-address {
+    resize: none;
+}
+
+.width-same-height {
+    position: relative;
+    padding-bottom: 100%;
+    overflow: hidden;
+}
+
+.width-same-height .img-card-product {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

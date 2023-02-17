@@ -32,28 +32,25 @@ namespace EFCodeFirstApproachExample.Controllers
             if (ModelState.IsValid)
             {
                 // Registration
-                var userStore = new ApplicationUserStore(_db);
-                var userManager = new ApplicationUserManager(userStore);
-                var user = new ApplicationUser();
-                user.UserName = model.UserName;
-                user.PasswordHash = Crypto.HashPassword(model.Password);
-                user.Email = model.Email;
-                user.PhoneNumber = model.Mobile;
-                user.BirthDay = model.BirthDay;
-                user.Country = model.Country;
-                user.City = model.City;
-                user.Address = model.Address;
-                var checkUser = userManager.Create(user);
+                var user = new ApplicationUser()
+                {
+                    UserName = model.UserName,
+                    PasswordHash = Crypto.HashPassword(model.Password),
+                    Email = model.Email,
+                    PhoneNumber = model.Mobile,
+                    BirthDay = model.BirthDay,
+                    Country = model.Country,
+                    City = model.City,
+                    Address = model.Address,
+                };
+                var checkUser = GetUserManager().Create(user);
                 if (checkUser.Succeeded)
                 {
                     // Add Role
-                    userManager.AddToRole(user.Id, "Customer");
+                    GetUserManager().AddToRole(user.Id, "Customer");
 
                     // Login
-                    var authenticationManager = HttpContext.GetOwinContext().Authentication;
-                    var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-                    authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
-
+                    HelperForLogin(user);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -81,9 +78,7 @@ namespace EFCodeFirstApproachExample.Controllers
         // POST: /Account/Login
         public ActionResult Login(LoginViewModel model)
         {
-            var userStore = new ApplicationUserStore(_db);
-            var userManager = new ApplicationUserManager(userStore);
-            var user = userManager.Find(model.UserName, model.Password);
+            var user = GetUserManager().Find(model.UserName, model.Password);
             if (user == null)
             {
                 ModelState.AddModelError("My Error", "Invalid UserName or Password");
@@ -92,10 +87,15 @@ namespace EFCodeFirstApproachExample.Controllers
             else
             {
                 // Login
-                var authenticationManager = HttpContext.GetOwinContext().Authentication;
-                var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-                authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
-                return RedirectToAction("Index", "Home");
+                HelperForLogin(user);
+                if (GetUserManager().IsInRole(user.Id, "Admin"))
+                {
+                    return RedirectToAction("Index", "Home", new { area = "Admin" });
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
         }
 
@@ -112,12 +112,26 @@ namespace EFCodeFirstApproachExample.Controllers
         // GET: /Account/Profile
         public new ActionResult Profile()
         {
-            var userStore = new ApplicationUserStore(_db);
-            var userManager = new ApplicationUserManager(userStore);
             var userId = User.Identity.GetUserId();
-            var currentUser = userManager.FindById(userId);
+            var currentUser = GetUserManager().FindById(userId);
             ViewBag.PreviousUrl = Request.UrlReferrer.ToString();
             return View(currentUser);
+        }
+
+        [NonAction]
+        private ApplicationUserManager GetUserManager()
+        {
+            var userStore = new ApplicationUserStore(_db);
+            var userManager = new ApplicationUserManager(userStore);
+            return userManager;
+        }
+
+        [NonAction]
+        private void HelperForLogin(ApplicationUser user)
+        {
+            var authenticationManager = HttpContext.GetOwinContext().Authentication;
+            var userIdentity = GetUserManager().CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+            authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
         }
     }
 }

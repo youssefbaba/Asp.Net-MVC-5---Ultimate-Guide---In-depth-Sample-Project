@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace EFCodeFirstApproachExample.Controllers
+namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
 {
-    public class BrandsController : Controller
+    public class CategoriesController : Controller
     {
         private CompanyDbContext _db;
 
-        public BrandsController()
+        public CategoriesController()
         {
             _db = new CompanyDbContext();
         }
 
         [HttpGet]
-        // GET: /Brands/Index
+        // GET: /Admin/Categories/Index
         public ActionResult Index()
         {
-            List<Brand> brands = _db.Brands.ToList();
-            return View(brands);
+            List<Category> categories = _db.Categories.ToList();
+            return View(categories);
         }
     }
 }

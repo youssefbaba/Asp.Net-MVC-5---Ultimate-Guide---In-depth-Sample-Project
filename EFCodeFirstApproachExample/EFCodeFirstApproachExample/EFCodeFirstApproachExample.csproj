@@ -146,6 +146,7 @@
     <Content Include="Content\css\all.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.6.3.min.js" />
@@ -156,9 +157,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BrandsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BrandsController.cs" />
-    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -238,19 +243,26 @@
     <Content Include="Content\webfonts\fa-solid-900.woff2" />
     <Content Include="Content\webfonts\fa-v4compatibility.ttf" />
     <Content Include="Content\webfonts\fa-v4compatibility.woff2" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayoutPage1.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Brands\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Profile.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Categories\Index.cshtml" />
-    <Content Include="Views\Brands\Index.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
-    <Content Include="Views\Products\Details.cshtml" />
-    <Content Include="Views\Products\Create.cshtml" />
-    <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -260,6 +272,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
