@@ -1,0 +1,15 @@
+﻿@model EFCodeFirstApproachExample.Models.Product
+<div class="col mb-3">
+    <div class="card h-100">
+        <div class="card-header width-same-height">
+            <img src="data:image;base64,@Model.Photo" alt="Not Found" class="card-img-top img-card-product" />
+        </div>
+        <div class="card-body">
+            <p class="card-text">Product : @Model.ProductName</p>
+            <p class="card-text">Price : @string.Format("{0:C}", Model.Price)</p>
+            <div class="d-flex justify-content-center">
+                @Html.ActionLink("More Details", "Details", "Products", new { productId = Model.ProductID }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+</div>

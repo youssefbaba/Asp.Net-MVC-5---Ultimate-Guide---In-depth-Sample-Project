@@ -37,6 +37,12 @@ namespace EFCodeFirstApproachExample.Controllers
             return View(products);
         }
 
+        [ChildActionOnly]
+        public ActionResult DisplaySingleProduct(Product product)
+        {
+            return PartialView("DisplayProduct", product);
+        }
+
         [HttpGet]
         [Route("Products/Details/{productId:long}")]
         // GET: /Products/Details/1

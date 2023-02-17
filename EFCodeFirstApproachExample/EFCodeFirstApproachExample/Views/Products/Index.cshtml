@@ -7,20 +7,7 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 ">
     @foreach (var product in Model)
     {
-        <div class="col mb-3">
-            <div class="card h-100">
-                <div class="card-header width-same-height">
-                    <img src="data:image;base64,@product.Photo" alt="Not Found" class="card-img-top img-card-product" />
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Product : @product.ProductName</p>
-                    <p class="card-text">Price : @string.Format("{0:C}", product.Price)</p>
-                    <div class="d-flex justify-content-center">
-                        @Html.ActionLink("More Details", "Details", "Products", new { productId = product.ProductID}, new { @class = "btn btn-primary" })
-                    </div>
-                </div>
-            </div>
-        </div>
+        Html.RenderAction("DisplaySingleProduct", "Products" , new { product = product});  @*   Sends Child Request    *@
     }
 </div>
 
@@ -64,3 +51,5 @@
         </li>
     </ul>
 }
+
+
