@@ -12,7 +12,7 @@ namespace EFCodeFirstApproachExample.Controllers
     public class ProductsController : Controller
     {
         private CompanyDbContext _db;
-
+         
         public ProductsController()
         {
             _db = new CompanyDbContext();

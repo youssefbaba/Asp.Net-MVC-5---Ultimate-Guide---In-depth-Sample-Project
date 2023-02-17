@@ -5,6 +5,7 @@ namespace EFCodeFirstApproachExample.Controllers
 {
     public class HomeController : Controller
     {
+        [OutputCache(Duration = 30)]
         [OverrideAuthentication]
         [ActionFilter]
         [ResultFilter]
