@@ -7,10 +7,12 @@ namespace EFCodeFirstApproachExample.Controllers
     public class HomeController : Controller
     {
         [OverrideAuthentication]
+        [ActionFilter]
         [HttpGet]
         // GET: /Home/Index
         public ActionResult Index()
         {
+            ViewBag.NumberOfVisitorsPerDay = 100; 
             return View();
         }
     }
