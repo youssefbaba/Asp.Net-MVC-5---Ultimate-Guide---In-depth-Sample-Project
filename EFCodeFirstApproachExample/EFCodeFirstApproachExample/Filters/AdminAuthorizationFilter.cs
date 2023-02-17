@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EFCodeFirstApproachExample.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,10 @@ namespace EFCodeFirstApproachExample.Filters
     {
         public void OnAuthorization(AuthorizationContext filterContext)
         {
-            filterContext.Result = new HttpUnauthorizedResult();
+            if (!filterContext.HttpContext.User.IsInRole(UserRoles.Admin))
+            {
+                filterContext.Result = new HttpUnauthorizedResult();
+            }
         }
     }
 }

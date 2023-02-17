@@ -2,3 +2,7 @@ Date = 2/17/2023 7:40:09 PM
 Message = The underlying provider failed on Open.
 Type = System.Data.Entity.Core.EntityException
 Source = EntityFramework
+Date = 2/17/2023 8:20:12 PM
+Message = The underlying provider failed on Open.
+Type = System.Data.Entity.Core.EntityException
+Source = EntityFramework

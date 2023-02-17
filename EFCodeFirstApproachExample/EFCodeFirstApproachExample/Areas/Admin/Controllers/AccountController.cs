@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
 {
+
     [AdminAuthorizationFilter]
     public class AccountController : Controller
     {
