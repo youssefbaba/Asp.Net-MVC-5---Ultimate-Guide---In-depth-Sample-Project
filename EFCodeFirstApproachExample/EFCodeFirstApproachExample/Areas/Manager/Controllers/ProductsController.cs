@@ -181,6 +181,7 @@ namespace EFCodeFirstApproachExample.Areas.Manager.Controllers
             return View(viewModel);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost]
         // POST: /Manager/Products/Save
         public ActionResult Save(Product product)

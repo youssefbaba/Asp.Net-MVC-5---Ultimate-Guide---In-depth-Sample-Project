@@ -5,7 +5,7 @@
 }
 
 <h2>Edit Product</h2>
-@using (Html.BeginForm("Save", "Products",  FormMethod.Post, new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Save", "Products", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -71,6 +71,7 @@
         @Html.Label("Product.Active", new { @class = "form-check-label" })
     </div>
     @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
     <div class="form-group">
         @Html.HiddenFor(model => model.Product.ProductID)
         <button type="button" class="btn btn-danger" id="js-cancel">Cancel</button>

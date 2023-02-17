@@ -28,6 +28,7 @@ namespace EFCodeFirstApproachExample.Controllers
             return View(viewModel);
         }
 
+        [ValidateAntiForgeryToken]
         [OverrideAuthentication]
         [HttpPost]
         // POST: /Account/Register
@@ -80,6 +81,7 @@ namespace EFCodeFirstApproachExample.Controllers
             return View(viewModel);
         }
 
+        [ValidateAntiForgeryToken]
         [OverrideAuthentication]
         [HttpPost]
         // POST: /Account/Login

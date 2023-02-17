@@ -181,6 +181,7 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
             return View(viewModel);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost]
         // POST: /Admin/Products/Save
         public ActionResult Save(Product product)
@@ -230,6 +231,7 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
             }
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost]
         // POST: /Admin/Products/Delete
         public ActionResult Delete(long productId)

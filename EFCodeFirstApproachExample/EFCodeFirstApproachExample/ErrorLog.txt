@@ -6,3 +6,7 @@ Date = 2/17/2023 8:20:12 PM
 Message = The underlying provider failed on Open.
 Type = System.Data.Entity.Core.EntityException
 Source = EntityFramework
+Date = 2/18/2023 12:31:06 AM
+Message = The anti-forgery token could not be decrypted. If this application is hosted by a Web Farm or cluster, ensure that all machines are running the same version of ASP.NET Web Pages and that the <machineKey> configuration specifies explicit encryption and validation keys. AutoGenerate cannot be used in a cluster.
+Type = System.Web.Mvc.HttpAntiForgeryException
+Source = System.Web.WebPages
