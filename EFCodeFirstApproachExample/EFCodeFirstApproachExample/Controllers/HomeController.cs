@@ -8,6 +8,7 @@ namespace EFCodeFirstApproachExample.Controllers
     {
         [OverrideAuthentication]
         [ActionFilter]
+        [ResultFilter]
         [HttpGet]
         // GET: /Home/Index
         public ActionResult Index()
