@@ -19,9 +19,10 @@ namespace EFCodeFirstApproachExample.Controllers
         }
 
         [OverrideAuthentication]
+        [ActionName("Register")]
         [HttpGet]
         // GET: /Account/Register
-        public ActionResult Register()
+        public ActionResult RegistrationPage()
         {
             var viewModel = new RegisterViewModel();
             return View(viewModel);
@@ -69,10 +70,11 @@ namespace EFCodeFirstApproachExample.Controllers
             }
         }
 
+        [ActionName("Login")]
         [OverrideAuthentication]
         [HttpGet]
         // GET: /Account/Login
-        public ActionResult Login()
+        public ActionResult LoginPage()
         {
             var viewModel = new LoginViewModel();
             return View(viewModel);
