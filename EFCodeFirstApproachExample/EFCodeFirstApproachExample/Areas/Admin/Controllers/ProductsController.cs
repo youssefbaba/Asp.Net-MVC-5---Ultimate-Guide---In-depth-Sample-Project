@@ -10,7 +10,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
-
+ 
 namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
 {
     [AdminAuthorizationFilter]
@@ -128,6 +128,11 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
             ViewBag.currentPage = currentPage;
             ViewBag.numberOfPages = numberOfPages;
             products = _productsService.SkipAndTakeProducts(products , (currentPage - 1) * numberOfItemsPerPage, numberOfItemsPerPage);
+
+            // Demo ViewData 
+            ViewData["Movies"] = new List<string>() { "The 355", "The Commando", "King Car", "See for Me", " American Siege" };
+
+
             return View(products);
         }
 

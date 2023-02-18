@@ -301,7 +301,7 @@
             if (i == ViewBag.currentPage)
             {
                 <li class="page-item active" aria-current="page">
-                    @Html.ActionLink(i.ToString(), "Index", "Products", new { criteria = ViewBag.criteria, order = ViewBag.order, currentPage = i}, new { @class = "page-link" })
+                    @Html.ActionLink(i.ToString(), "Index", "Products", new { criteria = ViewBag.criteria, order = ViewBag.order, currentPage = i }, new { @class = "page-link" })
                 </li>
             }
             else
@@ -316,6 +316,14 @@
         </li>
     </ul>
 }
+
+<ul class="list-group">
+    <li class="list-group-item active" aria-current="true">List Of Movies</li>
+    @foreach (var movie in ViewData["Movies"] as List<string>)
+    {
+        <li class="list-group-item">@movie</li>
+    }
+</ul>
 @section scripts{
     <script>
         $(document).ready(function () {
