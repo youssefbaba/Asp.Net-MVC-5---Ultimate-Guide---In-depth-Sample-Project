@@ -365,6 +365,14 @@
       <Project>{65960cb3-f082-4fc2-bc0e-d2b21c8db00a}</Project>
       <Name>DomainModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RepositoryContracts\RepositoryContracts.csproj">
+      <Project>{21a74ba1-b5dc-41b9-978d-2e736ad3a78b}</Project>
+      <Name>RepositoryContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryLayer\RepositoryLayer.csproj">
+      <Project>{ba5c0f4a-cab8-4c38-af50-92d0d2a2091e}</Project>
+      <Name>RepositoryLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServiceContracts\ServiceContracts.csproj">
       <Project>{cd09bc45-ae04-4085-b2d0-648351f7a957}</Project>
       <Name>ServiceContracts</Name>

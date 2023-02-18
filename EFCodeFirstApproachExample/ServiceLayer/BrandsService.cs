@@ -1,5 +1,6 @@
 ﻿using DataLayer;
 using DomainModels;
+using RepositoryContracts;
 using ServiceContracts;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,15 @@ namespace ServiceLayer
 {
     public class BrandsService : IBrandsService
     {
-        private CompanyDbContext _db;
+        private IBrandsRepository _brandsRepository;
 
-        public BrandsService()
+        public BrandsService(IBrandsRepository brandsRepository)  // Dependency Injection
         {
-            _db = new CompanyDbContext();
+            _brandsRepository = brandsRepository;
         }
         public List<Brand> GetBrands()
         {
-            return _db.Brands.ToList();
+            return _brandsRepository.GetBrands();   
         }
     }
 }

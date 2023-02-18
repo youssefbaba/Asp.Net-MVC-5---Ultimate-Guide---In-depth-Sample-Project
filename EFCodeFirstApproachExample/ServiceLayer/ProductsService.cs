@@ -1,87 +1,59 @@
-﻿using DataLayer;
-using DomainModels;
+﻿using DomainModels;
+using RepositoryContracts;
 using ServiceContracts;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
 
 namespace ServiceLayer
 {
     public class ProductsService : IProductsService
     {
-        private CompanyDbContext _db;
+        private IProductsRepository _productsRepository;
 
-        public ProductsService()
+        public ProductsService(IProductsRepository productsRepository)  // Dependency Injection
         {
-            _db = new CompanyDbContext();
+            _productsRepository = productsRepository;
         }
 
         public List<Product> GetProducts()
         {
-            return _db.Products
-                .Include(p => p.Category)
-                .Include(p => p.Brand)
-                .ToList();
+            return _productsRepository.GetProducts();
         }
 
         public List<Product> SearchProductsByProductName(string productName)
         {
-            return _db.Products
-                .Include(p => p.Category)
-                .Include(p => p.Brand)
-                .Where(p => p.ProductName.Contains(productName))
-                .ToList();
+            return _productsRepository.SearchProductsByProductName(productName);
         }
 
         public List<Product> SkipAndTakeProducts(List<Product> products, int skip, int take)
         {
-            return products.Skip(skip).Take(take).ToList();
+            return _productsRepository.SkipAndTakeProducts(products, skip, take);
         }
 
         public Product GetProductByProductId(long productId)
         {
-            return _db.Products
-                .Include(p => p.Category)
-                .Include(p => p.Brand)
-                .SingleOrDefault(p => p.ProductID == productId);
+            return _productsRepository.GetProductByProductId(productId);
         }
 
         public void InsertProduct(Product product)
         {
-            _db.Products.Add(product);
-            _db.SaveChanges();
+            if (product.Price <= 100000)
+            {
+                _productsRepository.InsertProduct(product);
+            }
+            else
+            {
+                throw new Exception("Price Exeeds The Limit");
+            }
         }
         public Product UpdateProduct(Product product)
         {
-            Product productInDb = GetProductByProductId(product.ProductID);
-            if (productInDb == null)
-            {
-                return null;
-            }
-            productInDb.ProductName = product.ProductName;
-            productInDb.Price = product.Price;
-            productInDb.DOP = product.DOP;
-            productInDb.AvailabilityStatus = product.AvailabilityStatus;
-            productInDb.CategoryID = product.CategoryID;
-            productInDb.BrandID = product.BrandID;
-            productInDb.Active = product.Active;
-            productInDb.PhotoName = product.PhotoName;
-            productInDb.Photo = product.Photo;
-            _db.SaveChanges();
-            return productInDb;
+            return _productsRepository.UpdateProduct(product);
         }
 
         public Product DeleteProduct(long productId)
         {
-            Product productInDb = GetProductByProductId(productId);
-            if (productInDb == null)
-            {
-                return null;
-            }
-            _db.Products.Remove(productInDb);
-            _db.SaveChanges();
-            return productInDb;
+            return _productsRepository.DeleteProduct(productId);
         }
     }
 }

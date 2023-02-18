@@ -1,3 +1,5 @@
+using RepositoryContracts;
+using RepositoryLayer;
 using ServiceContracts;
 using ServiceLayer;
 using System;
@@ -46,6 +48,9 @@ namespace EFCodeFirstApproachExample
             container.RegisterType<IProductsService, ProductsService>();
             container.RegisterType<ICategoriesService, CategoriesService>();
             container.RegisterType<IBrandsService, BrandsService>();
+            container.RegisterType<IProductsRepository, ProductsRepository>();
+            container.RegisterType<IBrandsRepository, BrandsRepository>();
+            container.RegisterType<ICategoriesRepository, CategoriesRepository>();
         }
     }
 }
