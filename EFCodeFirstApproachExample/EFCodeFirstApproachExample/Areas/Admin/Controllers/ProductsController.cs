@@ -132,6 +132,8 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
             // Demo ViewData 
             ViewData["Movies"] = new List<string>() { "The 355", "The Commando", "King Car", "See for Me", " American Siege" };
 
+            // Demo ViewBag 
+            ViewBag.Cars = new List<string>(){ "Mercedes", "Honda", "Toyota", "Ferrari"};
 
             return View(products);
         }

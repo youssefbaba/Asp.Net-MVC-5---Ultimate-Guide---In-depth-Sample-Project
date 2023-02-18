@@ -324,6 +324,13 @@
         <li class="list-group-item">@movie</li>
     }
 </ul>
+<ul class="list-group">
+    <li class="list-group-item list-group-item-danger" aria-current="true">List Of Cars</li>
+    @foreach (var car in ViewBag.Cars)
+    {
+        <li class="list-group-item">@car</li>
+    }
+</ul>
 @section scripts{
     <script>
         $(document).ready(function () {

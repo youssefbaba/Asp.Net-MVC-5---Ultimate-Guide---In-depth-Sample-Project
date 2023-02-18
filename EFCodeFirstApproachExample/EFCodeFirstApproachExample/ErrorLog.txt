@@ -15,3 +15,8 @@ Message = The underlying provider failed on Open.
 Type = System.Data.Entity.Core.EntityException
 Source = EntityFramework
 
+Date = 2/19/2023 12:24:45 AM
+Message = Object reference not set to an instance of an object.
+Type = System.NullReferenceException
+Source = App_Web_nahjdam1
+
