@@ -16,7 +16,7 @@ namespace EFCodeFirstApproachExample.Filters
             var type = filterContext.Exception.GetType().ToString();
             var source = filterContext.Exception.Source;
             var date = DateTime.Now;
-            var logText = $"Date = {date}\nMessage = {message}\nType = {type}\nSource = {source}";
+            var logText = $"Date = {date}\nMessage = {message}\nType = {type}\nSource = {source}\n";
             using (StreamWriter sw = File.AppendText($"{filterContext.RequestContext.HttpContext.Request.PhysicalApplicationPath}\\ErrorLog.txt"))
             {
                 sw.WriteLine(logText);

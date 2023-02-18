@@ -148,6 +148,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Error.html" />
+    <Content Include="Error500.html" />
     <Content Include="Error404.html" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -290,7 +291,6 @@
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\DisplayProduct.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
