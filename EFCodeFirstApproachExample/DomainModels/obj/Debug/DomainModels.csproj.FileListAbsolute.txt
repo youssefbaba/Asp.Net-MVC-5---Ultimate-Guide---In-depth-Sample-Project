@@ -10,3 +10,7 @@ C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirs
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DomainModels\obj\Debug\DomainModels.csproj.CopyComplete
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DomainModels\obj\Debug\DomainModels.dll
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DomainModels\obj\Debug\DomainModels.pdb
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DomainModels\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DomainModels\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DomainModels\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DomainModels\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml

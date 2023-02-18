@@ -13,3 +13,7 @@ C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirs
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DataLayer\obj\Debug\DataLayer.dll
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DataLayer\obj\Debug\DataLayer.pdb
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DataLayer\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DataLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DataLayer\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\DataLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml

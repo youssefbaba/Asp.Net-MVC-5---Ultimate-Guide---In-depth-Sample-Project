@@ -21,10 +21,10 @@ namespace EFCodeFirstApproachExample.Areas.Manager.Controllers
         private CompanyDbContext _db;
         private IProductsService _productsService;
 
-        public ProductsController()
+        public ProductsController(IProductsService productsService)  // Dependency Injection
         {
             _db = new CompanyDbContext();
-            _productsService = new ProductsService();
+            _productsService = productsService;
         }
 
         [HttpGet]

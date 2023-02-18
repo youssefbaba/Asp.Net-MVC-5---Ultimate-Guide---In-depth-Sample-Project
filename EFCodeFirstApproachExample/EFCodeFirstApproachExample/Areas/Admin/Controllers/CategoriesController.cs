@@ -12,13 +12,11 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
     [AdminAuthorizationFilter]
     public class CategoriesController : Controller
     {
-        private CompanyDbContext _db;
         private ICategoriesService _categoriesService;
 
-        public CategoriesController()
+        public CategoriesController(ICategoriesService categoriesService)   // Dependency Injection
         {
-            _db = new CompanyDbContext();
-            _categoriesService = new CategoriesService();
+            _categoriesService = categoriesService;
         }
 
         [HttpGet]
