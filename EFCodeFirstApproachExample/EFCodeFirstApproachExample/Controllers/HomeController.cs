@@ -1,4 +1,5 @@
 ﻿using EFCodeFirstApproachExample.Filters;
+using System;
 using System.Web.Mvc;
 
 namespace EFCodeFirstApproachExample.Controllers
@@ -13,6 +14,7 @@ namespace EFCodeFirstApproachExample.Controllers
         // GET: /Home/Index
         public ActionResult Index()
         {
+            //throw new Exception("Some Exception For Testing Purpose");
             ViewBag.NumberOfVisitorsPerDay = 100; 
             return View();
         }

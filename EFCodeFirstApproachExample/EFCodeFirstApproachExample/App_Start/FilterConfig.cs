@@ -12,7 +12,9 @@ namespace EFCodeFirstApproachExample
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new AuthenticationFilter());
-            filters.Add(new ExceptionFilter());
+            //filters.Add(new ExceptionFilter());
+            //filters.Add(new HandleErrorAttribute());    
+            filters.Add(new HandleErrorAttribute() { ExceptionType = typeof(Exception) , View = "Error"});    
         }
     }
 }
