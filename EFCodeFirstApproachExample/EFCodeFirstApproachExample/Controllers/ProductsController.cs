@@ -22,7 +22,7 @@ namespace EFCodeFirstApproachExample.Controllers
         // GET: /Products/Index
         public ActionResult Index(int currentPage = 1)
         {
-            throw new Exception("Some Exception For Testing Purpose");
+            //throw new Exception("Some Exception For Testing Purpose");
             List<Product> products;
             products = _db.Products
                 .Include(p => p.Category)

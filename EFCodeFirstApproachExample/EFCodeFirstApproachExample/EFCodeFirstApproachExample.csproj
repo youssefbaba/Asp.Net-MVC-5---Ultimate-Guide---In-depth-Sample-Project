@@ -148,6 +148,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Error.html" />
+    <Content Include="Error404.html" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.6.3.min.js" />
