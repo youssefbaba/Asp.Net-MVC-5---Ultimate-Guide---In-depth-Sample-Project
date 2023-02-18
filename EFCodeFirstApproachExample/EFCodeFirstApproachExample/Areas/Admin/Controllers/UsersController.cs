@@ -1,7 +1,6 @@
 ﻿using EFCodeFirstApproachExample.Areas.Admin.ViewModels;
 using EFCodeFirstApproachExample.Filters;
 using EFCodeFirstApproachExample.Identity;
-using EFCodeFirstApproachExample.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -21,7 +20,6 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
         {
             _db = new ApplicationDbContext();
         }
-
 
         [HttpGet]
         // GET: /Admin/Users

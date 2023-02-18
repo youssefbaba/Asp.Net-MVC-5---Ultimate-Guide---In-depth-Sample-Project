@@ -1,0 +1,10 @@
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\ServiceContracts\bin\Debug\ServiceContracts.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\ServiceContracts\bin\Debug\ServiceContracts.pdb
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\ServiceContracts\bin\Debug\DomainModels.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\ServiceContracts\bin\Debug\DomainModels.pdb
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\ServiceContracts\bin\Debug\DomainModels.dll.config
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\ServiceContracts\obj\Debug\ServiceContracts.csproj.AssemblyReference.cache
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\ServiceContracts\obj\Debug\ServiceContracts.csproj.CoreCompileInputs.cache
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\ServiceContracts\obj\Debug\ServiceContracts.csproj.CopyComplete
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\ServiceContracts\obj\Debug\ServiceContracts.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\ServiceContracts\obj\Debug\ServiceContracts.pdb

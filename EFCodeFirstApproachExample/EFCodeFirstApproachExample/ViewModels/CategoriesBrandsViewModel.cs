@@ -1,4 +1,4 @@
-﻿using EFCodeFirstApproachExample.Models;
+﻿using DomainModels;
 using System.Collections.Generic;
 
 namespace EFCodeFirstApproachExample.ViewModels

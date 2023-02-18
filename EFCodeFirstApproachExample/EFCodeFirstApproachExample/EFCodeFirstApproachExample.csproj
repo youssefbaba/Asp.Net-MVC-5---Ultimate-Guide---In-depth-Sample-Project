@@ -236,15 +236,10 @@
       <DependentUpon>202302151646181_AddSomeOtherValidationRules.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Brand.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\CompanyDbContext.cs" />
     <Compile Include="Identity\ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUser.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Validations\PriceDivisibleBy10Attribute.cs" />
     <Compile Include="ViewModels\CategoriesBrandsViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
@@ -300,8 +295,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Manager\Models\" />
     <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
@@ -342,6 +335,24 @@
     <EmbeddedResource Include="Migrations\202302151646181_AddSomeOtherValidationRules.resx">
       <DependentUpon>202302151646181_AddSomeOtherValidationRules.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{689299e7-9c27-483d-8c23-83e4189486e5}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModels\DomainModels.csproj">
+      <Project>{65960cb3-f082-4fc2-bc0e-d2b21c8db00a}</Project>
+      <Name>DomainModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceContracts\ServiceContracts.csproj">
+      <Project>{cd09bc45-ae04-4085-b2d0-648351f7a957}</Project>
+      <Name>ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
+      <Project>{61cc5129-12d4-4842-82c8-01bb776e4a59}</Project>
+      <Name>ServiceLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

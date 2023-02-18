@@ -1,6 +1,9 @@
-﻿using EFCodeFirstApproachExample.Filters;
-using EFCodeFirstApproachExample.Models;
+﻿using DataLayer;
+using DomainModels;
+using EFCodeFirstApproachExample.Filters;
 using EFCodeFirstApproachExample.ViewModels;
+using ServiceContracts;
+using ServiceLayer;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -16,10 +19,12 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
     public class ProductsController : Controller
     {
         private CompanyDbContext _db;
+        private IProductsService _productsService;
 
         public ProductsController()
         {
             _db = new CompanyDbContext();
+            _productsService = new ProductsService();
         }
 
         [HttpGet]
@@ -28,11 +33,7 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
         {
             ViewBag.keyWord = keyWord;
             List<Product> products;
-            products = _db.Products
-                .Include(p => p.Category)
-                .Include(p => p.Brand)
-                .Where(p => p.ProductName.Contains(keyWord))
-                .ToList();
+            products = _productsService.SearchProductsByProductName(keyWord);
 
             // Sorting
             ViewBag.criteria = criteria;
@@ -126,7 +127,7 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
             var numberOfPages = Convert.ToInt32((Math.Ceiling(Convert.ToDouble(products.Count) / Convert.ToDouble(numberOfItemsPerPage))));
             ViewBag.currentPage = currentPage;
             ViewBag.numberOfPages = numberOfPages;
-            products = products.Skip((currentPage - 1) * numberOfItemsPerPage).Take(numberOfItemsPerPage).ToList();
+            products = _productsService.SkipAndTakeProducts(products , (currentPage - 1) * numberOfItemsPerPage, numberOfItemsPerPage);
             return View(products);
         }
 
@@ -135,10 +136,7 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
         // GET: /Admin/Products/Details/1
         public ActionResult Details(long productId)
         {
-            Product product = _db.Products
-                .Include(p => p.Category)
-                .Include(p => p.Brand)
-                .SingleOrDefault(p => p.ProductID == productId);
+            Product product = _productsService.GetProductByProductId(productId);
             if (product == null)
             {
                 return HttpNotFound();
@@ -164,10 +162,7 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
         // GET: /Admin/Products/Edit/1
         public ActionResult Edit(long productId)
         {
-            Product product = _db.Products
-                .Include(p => p.Category)
-                .Include(p => p.Brand)
-                .SingleOrDefault(p => p.ProductID == productId);
+            Product product = _productsService.GetProductByProductId(productId);
             if (product == null)
             {
                 return HttpNotFound();
@@ -190,26 +185,16 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
             {
                 if (product.ProductID == 0)  // Create
                 {
-                    _db.Products.Add(product);
+                    _productsService.InsertProduct(product);
                 }
                 else // Update
                 {
-                    Product productInDb = _db.Products.SingleOrDefault(p => p.ProductID == product.ProductID);
+                    Product productInDb = _productsService.UpdateProduct(product);
                     if (product == null)
                     {
                         return HttpNotFound();
                     }
-                    productInDb.ProductName = product.ProductName;
-                    productInDb.Price = product.Price;
-                    productInDb.DOP = product.DOP;
-                    productInDb.AvailabilityStatus = product.AvailabilityStatus;
-                    productInDb.CategoryID = product.CategoryID;
-                    productInDb.BrandID = product.BrandID;
-                    productInDb.Active = product.Active;
-                    productInDb.PhotoName = product.PhotoName;
-                    productInDb.Photo = product.Photo;
                 }
-                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             else
@@ -236,13 +221,11 @@ namespace EFCodeFirstApproachExample.Areas.Admin.Controllers
         // POST: /Admin/Products/Delete
         public ActionResult Delete(long productId)
         {
-            Product productInDb = _db.Products.SingleOrDefault(p => p.ProductID == productId);
+            Product productInDb = _productsService.DeleteProduct(productId);
             if (productInDb == null)
             {
                 return HttpNotFound();
             }
-            _db.Products.Remove(productInDb);
-            _db.SaveChanges();
             return RedirectToAction("Index");
         }
     }
