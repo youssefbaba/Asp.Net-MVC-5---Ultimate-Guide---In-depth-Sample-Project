@@ -9,11 +9,46 @@
         <tr>
             <th>Brand Id</th>
             <th>Brand Name</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody id="tableBody">
     </tbody>
 </table>
+
+<!-- Details -->
+<div class="modal fade" id="DetailsBrand" tabindex="-1" aria-labelledby="DetailsBrandLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="DetailsBrandLabel">View Brand</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Brand Id</th>
+                            <td><span id="spanBrandId"></span></td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <th>Brand Name</th>
+                            <td><span id="spanBrandName"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @section scripts{
     <script type="text/javascript">
         $(document).ready(function () {
@@ -23,9 +58,13 @@
                 success: function (response) {
                     var tbodyString = "";
                     $.each(response, function (index, value) {
-                        tbodyString += "<tr><td>" + value.BrandID + "</td><td>" + value.BrandName + "</td></tr>";
+                        tbodyString += "<tr>" +
+                            "<td>" + value.BrandID + "</td>" +
+                            "<td>" + value.BrandName + "</td>" +
+                            "<td> <button type='button' class='btn btn-success' data-toggle='modal' data-target='#DetailsBrand' data-brandId='" + value.BrandID +"'> Details</button> </td>" +
+                            "</tr>";
                     });
-              
+
                     $("#tableBody").append(tbodyString);
                 },
                 error: function (error) {
@@ -33,6 +72,21 @@
                 }
             });
         })
+
+        $('#DetailsBrand').on('show.bs.modal', function (event) {
+            var brandId = $(event.relatedTarget).data('brandid');
+            $.ajax({
+                url: "/api/Brands/" + brandId,
+                method: "GET",
+                success: function (response) {
+                    $("#spanBrandId").html(response.BrandID);
+                    $("#spanBrandName").html(response.BrandName);
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        });
     </script>
 }
 

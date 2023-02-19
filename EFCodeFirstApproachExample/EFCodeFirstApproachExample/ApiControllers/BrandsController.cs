@@ -3,6 +3,7 @@ using DomainModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+//using System.Web.Mvc;
 
 
 namespace EFCodeFirstApproachExample.ApiControllers
@@ -22,6 +23,19 @@ namespace EFCodeFirstApproachExample.ApiControllers
         {
             List<Brand> brands = _db.Brands.ToList();
             return Ok(brands);
+        }
+
+        [Route("api/Brands/{brandId:long}")]
+        [HttpGet]
+        // GET: /api/Brands/1
+        public IHttpActionResult GetBrandsByBrandId(long brandId)
+        {
+            Brand brand = _db.Brands.SingleOrDefault(b => b.BrandID == brandId);
+            if (brand == null)
+            {
+                return NotFound();
+            }
+            return Ok(brand);
         }
 
     }
