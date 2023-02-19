@@ -1,0 +1,39 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My ASP.NET Application</title>
+        @*<link href="~/Content/Css/Style1.css" rel="stylesheet" />
+        <link href="~/Content/Css/Style2.css" rel="stylesheet" />
+        <link href="~/Content/Css/Style3.css" rel="stylesheet" />
+        <link href="~/Content/Css/Style4.css" rel="stylesheet" />
+        <link href="~/Content/Css/Style5.css" rel="stylesheet" />
+        <link href="~/Content/Css/Style6.css" rel="stylesheet" />
+        <link href="~/Content/Css/Style7.css" rel="stylesheet" />
+        <link href="~/Content/Css/Style8.css" rel="stylesheet" />
+        <link href="~/Content/Css/Style9.css" rel="stylesheet" />
+        <link href="~/Content/Css/Style10.css" rel="stylesheet" />*@
+
+    @Styles.Render("~/bundles/StylesBundle1")
+    @Styles.Render("~/bundles/StylesBundle2")
+</head>
+<body>
+    <h1 style="color:red;">Bundling And Minification</h1>
+
+        @*<script src="~/Scripts/Script1.js" type="text/javascript"></script>
+        <script src="~/Scripts/Script2.js" type="text/javascript"></script>
+        <script src="~/Scripts/Script3.js" type="text/javascript"></script>
+        <script src="~/Scripts/Script4.js" type="text/javascript"></script>
+        <script src="~/Scripts/Script5.js" type="text/javascript"></script>
+        <script src="~/Scripts/Script6.js" type="text/javascript"></script>
+        <script src="~/Scripts/Script7.js" type="text/javascript"></script>
+        <script src="~/Scripts/Script8.js" type="text/javascript"></script>
+        <script src="~/Scripts/Script9.js" type="text/javascript"></script>
+        <script src="~/Scripts/Script10.js" type="text/javascript"></script>*@
+
+    @Scripts.Render("~/bundles/ScriptsBundle1")
+    @Scripts.Render("~/bundles/ScriptsBundle2")
+</body>
+</html>
