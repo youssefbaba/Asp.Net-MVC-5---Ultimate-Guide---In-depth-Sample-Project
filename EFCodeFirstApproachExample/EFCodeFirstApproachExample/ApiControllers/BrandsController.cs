@@ -38,5 +38,18 @@ namespace EFCodeFirstApproachExample.ApiControllers
             return Ok(brand);
         }
 
+        [HttpPost]
+        // POST/ /api/Brands
+        public IHttpActionResult InsertBrand(Brand brand)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            _db.Brands.Add(brand);
+            _db.SaveChanges();
+            return Ok(brand);
+        }
+
     }
 }
