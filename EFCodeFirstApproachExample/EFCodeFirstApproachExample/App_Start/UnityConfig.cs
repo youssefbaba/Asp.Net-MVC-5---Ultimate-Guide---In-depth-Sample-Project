@@ -47,9 +47,7 @@ namespace EFCodeFirstApproachExample
             // TODO: Register your type's mappings here.
             container.RegisterType<IProductsService, ProductsService>();
             container.RegisterType<ICategoriesService, CategoriesService>();
-            container.RegisterType<IBrandsService, BrandsService>();
             container.RegisterType<IProductsRepository, ProductsRepository>();
-            container.RegisterType<IBrandsRepository, BrandsRepository>();
             container.RegisterType<ICategoriesRepository, CategoriesRepository>();
         }
     }

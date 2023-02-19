@@ -138,3 +138,9 @@ C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirs
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.csproj.CopyComplete
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.dll
 C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\obj\Debug\EFCodeFirstApproachExample.pdb
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\bin\System.Net.Http.Formatting.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\bin\System.Web.Http.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\bin\System.Web.Http.WebHost.dll
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\bin\System.Net.Http.Formatting.xml
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\bin\System.Web.Http.xml
+C:\Users\YoussefBaba\Desktop\My_Computer\My-Projects\Cours\ASPNETMVC5\EFCodeFirstApproachExample\EFCodeFirstApproachExample\bin\System.Web.Http.WebHost.xml

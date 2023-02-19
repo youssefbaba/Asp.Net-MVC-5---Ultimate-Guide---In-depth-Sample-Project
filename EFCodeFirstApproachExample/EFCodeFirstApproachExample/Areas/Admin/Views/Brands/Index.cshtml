@@ -5,20 +5,34 @@
 
 <h2>Brands</h2>
 <table class="table">
-    <tr>
-        <th>Brand Id</th>
-        <th>Brand Name</th>
-    </tr>
-    @foreach (var brand in Model)
-    {
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(model => brand.BrandID)
-            </td>
-            <td>
-                @Html.DisplayFor(model => brand.BrandName)
-            </td>
+            <th>Brand Id</th>
+            <th>Brand Name</th>
         </tr>
-    }
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
 </table>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: "/api/Brands",
+                method: "GET",
+                success: function (response) {
+                    var tbodyString = "";
+                    $.each(response, function (index, value) {
+                        tbodyString += "<tr><td>" + value.BrandID + "</td><td>" + value.BrandName + "</td></tr>";
+                    });
+              
+                    $("#tableBody").append(tbodyString);
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        })
+    </script>
+}
 
