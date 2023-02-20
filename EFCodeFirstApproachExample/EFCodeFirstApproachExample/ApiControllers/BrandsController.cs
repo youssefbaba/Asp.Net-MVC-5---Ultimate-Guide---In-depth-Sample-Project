@@ -1,5 +1,6 @@
 ﻿using DataLayer;
 using DomainModels;
+using EFCodeFirstApproachExample.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -7,6 +8,7 @@ using System.Web.Http;
 
 namespace EFCodeFirstApproachExample.ApiControllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class BrandsController : ApiController
     {
         private CompanyDbContext _db;
@@ -36,7 +38,7 @@ namespace EFCodeFirstApproachExample.ApiControllers
             }
             return Ok(brand);
         }
-
+        
         [HttpPost]
         // POST: /api/Brands
         public IHttpActionResult InsertBrand(Brand brand)

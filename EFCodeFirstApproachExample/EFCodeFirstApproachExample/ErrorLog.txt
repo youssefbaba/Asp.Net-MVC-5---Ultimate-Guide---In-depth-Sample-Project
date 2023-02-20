@@ -25,3 +25,8 @@ Message = The controller for path '/api/brands' was not found or does not implem
 Type = System.Web.HttpException
 Source = System.Web.Mvc
 
+Date = 2/20/2023 9:31:04 AM
+Message = The controller for path '/Manager/brands' was not found or does not implement IController.
+Type = System.Web.HttpException
+Source = System.Web.Mvc
+
